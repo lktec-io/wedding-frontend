@@ -201,16 +201,16 @@ a:hover {
 .card-wrapper {
   position: relative;
   width: 100%;
-  max-width: 720px;
+  /* max-width: 720px; */
   height: auto;
-  aspect-ratio: 4 / 4; /* unaweza kurekebisha kama unataka uwiano tofauti */
+  /* aspect-ratio: 4/ 4; unaweza kurekebisha kama unataka uwiano tofauti */
   overflow: hidden;
   border-radius: 10px 10px 0px 0px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 /* Hii sasa inafanya image ijae full */
-.card-image {
+.card-image img {
   width: 100%;
   height: auto;
   object-fit: cover;
@@ -222,8 +222,8 @@ a:hover {
 /* Overlay (adjust these values depending on Photoshop layout) */
 .overlay-content {
   position: absolute;
-  left: 60px;
-  bottom: 70px;
+  right: 100px;
+  bottom: 50px;
   color: #fff;
   text-align: center;
 }
