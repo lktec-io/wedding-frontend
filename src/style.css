@@ -179,7 +179,7 @@ a:hover {
   background-color: rgba(220, 108, 10, 0.306);
 }
 
-.invite img {
+/* .invite img {
   max-width: 100%;
   height: auto;
   object-fit: cover;
@@ -187,43 +187,45 @@ a:hover {
   margin: 0 auto 1rem auto;
   border-radius: 10px 10px 0px 0px;
   padding: 0;
-}
-
-
+} */
 .invite-card {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  padding: 0px;
 }
 
 .card-wrapper {
   position: relative;
   width: 100%;
   max-width: 720px;
-  border-radius: 15px;
+ border-radius: 10px 10px 0px 0px; 
   overflow: hidden;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .card-image {
-  width: 100%;
+    max-width: 100%;
   height: auto;
   object-fit: cover;
   display: block;
+  margin: 0 auto 1rem auto;
+  border-radius: 10px 10px 0px 0px;
+  padding: 0;
+  width: 100%; 
 }
 
 /* Overlay (adjust these values depending on Photoshop layout) */
 .overlay-content {
   position: absolute;
-  right: 40px;
-  bottom: 120px;
+  right: 60px;
+  bottom: 150px;
   color: #fff;
   text-align: center;
 }
 
 .guest-name {
-  font-size: 22px;
+  font-size: 25px;
   font-weight: bold;
   margin-bottom: 8px;
 }
