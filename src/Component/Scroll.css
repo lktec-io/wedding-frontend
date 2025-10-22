@@ -1,0 +1,55 @@
+.scroll-to-top {
+  position: fixed;
+  bottom: 120px;
+  right: 30px;
+  width: 40px;
+  height: 40px;
+  background: rgb(255, 140, 0); 
+  color: black; 
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s, transform 0.3s;
+  z-index: 1000;
+  animation: bounce 2s infinite;
+}
+
+.double-arrow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 6px;
+  margin-bottom: 10px;
+}
+
+.double-arrow svg {
+  display: block;
+  line-height: 1;
+}
+
+.double-arrow svg:first-child {
+  margin-bottom: -14px; 
+}
+
+
+.scroll-to-top.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.scroll-to-top:hover {
+  background: orange;
+  transform: scale(1.1); /* hover effect ya kupanuka kidogo */
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-10px); }
+  60% { transform: translateY(-4px); }
+}

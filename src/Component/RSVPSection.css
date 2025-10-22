@@ -1,0 +1,85 @@
+.rsvp {
+  position: relative;
+  margin-top: 2rem;
+  padding: 1rem;
+  text-align: center;
+}
+
+.rsvp h2 {
+ font-family: "Inter", sans-serif;
+  color: rgba(0, 0, 0, 0.768);
+  font-size: 1.6em;
+  font-weight: 600;
+  
+  margin-bottom: 1rem;
+}
+
+.rsvp-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.yes-btn,
+.no-btn {
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  transition: transform 0.3s ease;
+}
+
+.yes-btn {
+  background-color: #008000;
+  color: white;
+}
+
+.no-btn {
+  background-color: #c8c4c4;
+  color: black;
+  border: 1px solid #999;
+}
+
+.yes-btn:hover,
+.no-btn:hover {
+  transform: scale(1.05);
+}
+
+.confirmation {
+  font-size: 1rem;
+  color: green;
+  background-color: #e6ffe6;
+  padding: 0.6rem;
+  border-radius: 8px;
+  animation: fadeIn 0.5s ease-in;
+}
+
+/* 🌸 Petal Animation */
+.petal {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background-color: rgb(230, 47, 77);
+  border-radius: 70%;
+  animation: fall 2.5s ease-out forwards;
+  z-index: 10;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(150px) scale(0.5);
+    opacity: 0;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

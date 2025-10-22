@@ -1,0 +1,88 @@
+{
+  "hash": "8e8aa0b2",
+  "configHash": "6a9844d0",
+  "lockfileHash": "509fbf9e",
+  "browserHash": "22d7445f",
+  "optimized": {
+    "html2canvas": {
+      "src": "../../node_modules/html2canvas/dist/html2canvas.js",
+      "file": "html2canvas.js",
+      "fileHash": "e2371caa",
+      "needsInterop": true
+    },
+    "jspdf": {
+      "src": "../../node_modules/jspdf/dist/jspdf.es.min.js",
+      "file": "jspdf.js",
+      "fileHash": "a05646e3",
+      "needsInterop": false
+    },
+    "lucide-react": {
+      "src": "../../node_modules/lucide-react/dist/esm/lucide-react.js",
+      "file": "lucide-react.js",
+      "fileHash": "63b8b1e8",
+      "needsInterop": false
+    },
+    "react-dom/client": {
+      "src": "../../node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "2bfd9d0b",
+      "needsInterop": true
+    },
+    "react-icons/fa": {
+      "src": "../../node_modules/react-icons/fa/index.mjs",
+      "file": "react-icons_fa.js",
+      "fileHash": "7d2b426f",
+      "needsInterop": false
+    },
+    "react-qr-code": {
+      "src": "../../node_modules/react-qr-code/lib/index.js",
+      "file": "react-qr-code.js",
+      "fileHash": "8e62a698",
+      "needsInterop": true
+    },
+    "react-router-dom": {
+      "src": "../../node_modules/react-router-dom/dist/index.mjs",
+      "file": "react-router-dom.js",
+      "fileHash": "8f2b3729",
+      "needsInterop": false
+    },
+    "react": {
+      "src": "../../node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "8f3cc1e9",
+      "needsInterop": true
+    },
+    "react/jsx-dev-runtime": {
+      "src": "../../node_modules/react/jsx-dev-runtime.js",
+      "file": "react_jsx-dev-runtime.js",
+      "fileHash": "97fd7da8",
+      "needsInterop": true
+    }
+  },
+  "chunks": {
+    "chunk-DL887vQu": {
+      "file": "chunk-DL887vQu.js",
+      "isDynamicEntry": false
+    },
+    "index.es-BTwxXvc2": {
+      "file": "index.es-BTwxXvc2.js",
+      "isDynamicEntry": true
+    },
+    "purify.es-M_ipShze": {
+      "file": "purify.es-M_ipShze.js",
+      "isDynamicEntry": true
+    },
+    "react-D8Ah1131": {
+      "file": "react-D8Ah1131.js",
+      "isDynamicEntry": false
+    },
+    "react-dom-ChGjWJ_h": {
+      "file": "react-dom-ChGjWJ_h.js",
+      "isDynamicEntry": false
+    },
+    "typeof-BZDReiG_": {
+      "file": "typeof-BZDReiG_.js",
+      "isDynamicEntry": false
+    }
+  }
+}

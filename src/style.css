@@ -1,0 +1,366 @@
+@import url("https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;600&display=swap");
+
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: rgba(245, 245, 245, 0.96);
+  padding: 0;
+}
+
+.page-wrapper {
+  background-image: url("/love.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  min-height: 80vh;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.content-box {
+  background: rgba(255, 255, 255, 0.876);
+  backdrop-filter: blur(10px);
+  border-radius: 0.75rem;
+  padding: rem;
+  border-color: #e5e7eb;
+  max-width: 600px;
+  min-height: 90vh;
+  width: 100%;
+  text-align: center;
+  border: 1px solid rgba(90, 89, 89, 0.861);
+  box-shadow: 0 0 20px rgba(28, 28, 28, 0.644);
+  margin-top: 35px;
+}
+
+.rsvp {
+  margin-top: 45px;
+  border-top: 1px solid rgba(150, 150, 150, 0.444);
+}
+.rsvp h2 {
+  font-family: "poppins", sans-serif;
+}
+.salamu {
+  margin-top: 50px;
+  border-top: 1px solid rgba(124, 124, 124, 0.496);
+}
+.map {
+  margin-top: 50px;
+  border-top: 1px solid rgba(124, 124, 124, 0.419);
+  padding: 2em;
+}
+.download {
+  margin-top: 100px;
+  border-top: 1px solid rgba(124, 124, 124, 0.374);
+}
+
+h1 {
+  font-family: "italiano", cursive;
+  color: rgba(60, 199, 0, 0.786);
+  font-size: 1.5em;
+  font-weight: 500;
+}
+h2 {
+  font-family: "Inter", sans-serif;
+  color: rgba(0, 0, 0, 0.786);
+  font-size: 1.5em;
+  font-weight: 500;
+}
+
+h3 {
+  color: rgba(14, 14, 14, 0.786);
+  font-size: 1.7em;
+  font-weight: 600;
+  font-family: "Inter", sans-serif;
+}
+
+button,
+a {
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  margin: 0.5rem;
+  width: 80%;
+}
+
+button:hover,
+a:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+
+.confirmation {
+  background-color: rgb(236, 253, 245);
+  color: rgb(6, 95, 70);
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(122, 238, 184);
+  border-image: initial;
+  animation: fadeIn 0.5s ease-in;
+  font-size: 1em;
+  font-weight: 100;
+  border-radius: 10px;
+  padding: 30px;
+  background-color: rgba(195, 244, 191, 0.192);
+}
+
+.recording,
+.saving {
+  color: orange;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.map-frame {
+  width: 100%;
+  height: 50vh;
+  border: 1px solid rgba(158, 158, 158, 0.607);
+  box-shadow: 0 0 20px rgba(153, 153, 153, 0.2);
+  border-radius: 8px;
+  margin-top: 1.5rem;
+  touch-action: none;
+  outline-style: none;
+}
+.location {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  justify-content: center;
+}
+.location p {
+  font-size: 1.6em;
+  color: rgba(37, 37, 37, 0.889);
+}
+.download {
+  padding: 1.5em;
+}
+.download-btn {
+  background-color: rgb(240, 239, 239);
+  color: rgb(43, 43, 43);
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  display: inline-block;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.9rem;
+  transition: transform 0.3s ease;
+  font-weight: 100;
+  border: 1px solid rgba(175, 175, 176, 0.568);
+  margin-top: 20px;
+  gap: 1rem;
+}
+
+.download-btn:hover {
+  transform: scale(1.05);
+  background-color: rgba(220, 108, 10, 0.306);
+}
+
+.invite img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto 1rem auto;
+  border-radius: 10px 10px 0px 0px;
+}
+
+h4 {
+  font-size: 1.3em;
+  color: #6b7280;
+  font-weight: 500;
+  font-family: "poppins", cursive;
+  line-height: 1.6;
+  margin-top: 20px;
+}
+p {
+  line-height: 1.6;
+}
+/* .confirm {
+  font-size: 1.5em;
+ font-family: "Inter", sans-serif;
+  line-height: 1.6;
+  font-weight: 500;
+} */
+.guest {
+  font-size: 1.5em;
+  font-family: "Inter", sans-serif;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+.familia {
+  padding: 0.8em;
+}
+
+.word {
+  border-top: 1px solid rgba(150, 150, 150, 0.48);
+  padding: 1em;
+
+}
+
+.word h5{
+  font-family: "italiano", cursive;
+  color: #df3d07;
+  font-size: 1.2em;
+  font-weight: 500;
+}
+.word h2{
+  font-family: "italiano", cursive;
+  color: rgb(6, 95, 70);
+  font-size: 1.8em;
+  font-weight: 500;
+}
+
+.salamu {
+  padding: 1.5em;
+}
+
+/* Floating button */
+
+.floating-buttons {
+  position: fixed;
+  bottom: 70px;
+  left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: px;
+  z-index: 999;
+}
+.phone-btn,
+.whatsapp-btn {
+  border-radius: 50%;
+  width: 30%;
+  height: 1.9vh;
+  padding: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.phone-btn {
+  background: #ff5722;
+}
+.whatsapp-btn {
+  background: #04792f;
+}
+.phone-btn:hover,
+.whatsapp-btn:hover {
+  transform: scale(1.1) rotate(8deg);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+.countdown-section {
+  text-align: center;
+  padding: 2rem;
+  border-top: 1px solid rgba(168, 166, 166, 0.62);
+}
+
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+
+.countdown div {
+  background: transparent;
+  backdrop-filter: blur(15px);
+  /* background: rgba(255, 255, 255, 0.2); */
+  border: 1px solid rgb(164, 165, 163);
+  padding: 5px 4px;
+  border-radius: 10px;
+  min-width: 50px;
+  animation: bounce 2s infinite;
+}
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+.countdown span {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #df3d07;
+  /* background-color: rgb(255, 255, 255); */
+  background: transparent;
+}
+
+.countdown p {
+  margin-top: 0rem;
+  font-size: 0.8rem;
+  color: #333;
+  /* background-color: rgb(255, 255, 255); */
+  background: transparent;
+}
+
+
+
+
+
+
+.invite-card {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-wrapper {
+  position: relative;
+  width: 350px;
+  max-width: 90%;
+}
+
+.card-image {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.overlay {
+  position: absolute;
+  bottom: 15%;
+  width: 100%;
+  text-align: center;
+  color: #3b2f2f;
+}
+
+.guest-name {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.qr {
+  margin: 0 auto;
+}
