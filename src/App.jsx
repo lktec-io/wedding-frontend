@@ -35,10 +35,10 @@ function App() {
         <Route
           path="/"
           element={
-            <div className="page-wrapper" style={{ textAlign: "center", padding: "50px" }}>
-              <h2 style={{ fontSize: "28px", marginBottom: "10px" }}>💍 Flowen & Susan Wedding</h2>
-              <p style={{ fontSize: "18px" }}>Official Invitation Website</p>
-              <p style={{ color: "#777", marginTop: "20px" }}>
+            <div className="page-wrapper" style={{ textAlign: "center", padding: "91px" }}>
+              <h2 style={{ fontSize: "28px", marginBottom: "0px", color: "#ffffffff",marginTop: "150px" }}>💍 Donewell & Mariam Wedding</h2>
+              <p style={{ fontSize: "28px",color: "#ffffffff",marginTop: "0px" }}>Official Invitation Website</p>
+              <p style={{ color: "#ffffffff", marginTop: "150px", fontSize: "20px" }}>
                 Tafadhali tembelea link yako ya kipekee kuangalia mwaliko wako.
               </p>
             </div>
