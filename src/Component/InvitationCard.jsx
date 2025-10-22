@@ -33,19 +33,21 @@ export default function InvitationCard() {
 
   return (
     <div className="invite-card">
-      <div className="card-wrapper" style={{ position: "relative", textAlign: "center" }}>
+      <div className="card-wrapper" style={{ position: "relative", textAlign: "center", marginTop: "20px"  }}>
+        <div className="invite">
         <img
           src={loveImg}
           alt="Wedding Card"
-          className="card-image"
-          style={{ width: "100%", borderRadius: "10px" }}
+          // className="card-image"
+          // style={{ width: "100%", borderRadius: "10px" }}
         />
+        </div>
 
         {/* Guest name and QR code juu ya picha */}
         <div
           style={{
             position: "absolute",
-            top: "30px",
+            top: "60px",
             left: "50%",
             transform: "translateX(-50%)",
             color: "#fff",

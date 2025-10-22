@@ -11,14 +11,13 @@ export default function Family() {
       .then(data => setGuest(data))
       .catch(err => console.error(err));
   }, [uuid]);
-
   if (!guest) return <p>Inapakia taarifa zako...</p>;
 
   return (
     <div className="familia">
       <h4>
         Familia ya Mr & Mrs Hagai Mwakalindile wanayo furaha kubwa
-        kukualika kwenye sherehe ya harusi ya Flowen & Susan
+        kukualika kwenye sherehe ya harusi ya Donewell & Mariam
       </h4>
       <p className="guest">{guest.name.toUpperCase()}</p>
     </div>
