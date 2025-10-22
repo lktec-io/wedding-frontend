@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useParams } from "react-router-dom";
 import QRCode from "react-qr-code";
+import html2canvas from "html2canvas";
 import loveImg from "../assets/love.jpg";
 
 export default function InvitationCard() {
@@ -8,6 +9,7 @@ export default function InvitationCard() {
   const [guest, setGuest] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const cardRef = useRef();
 
   useEffect(() => {
     const fetchGuest = async () => {
@@ -17,7 +19,6 @@ export default function InvitationCard() {
         const data = await res.json();
         setGuest(data);
       } catch (err) {
-        console.error("Error fetching guest:", err);
         setError(err.message);
       } finally {
         setLoading(false);
@@ -26,144 +27,110 @@ export default function InvitationCard() {
     fetchGuest();
   }, [uuid]);
 
-  if (loading)
-    return <p style={{ textAlign: "center" }}>⏳ Inapakia taarifa zako...</p>;
-  if (error)
-    return <p style={{ textAlign: "center", color: "red" }}>❌ {error}</p>;
-  if (!guest || !guest.name)
-    return (
-      <p style={{ textAlign: "center", color: "red" }}>
-        ❌ Hakuna taarifa za mgeni huyu.
-      </p>
-    );
+  const handleDownload = async () => {
+    if (!cardRef.current) return;
+    const canvas = await html2canvas(cardRef.current);
+    const link = document.createElement("a");
+    link.download = `${guest.name}-Invitation.jpg`;
+    link.href = canvas.toDataURL("image/jpeg", 1.0);
+    link.click();
+  };
+
+  if (loading) return <p style={{ textAlign: "center" }}>⏳ Inapakia taarifa zako...</p>;
+  if (error) return <p style={{ textAlign: "center", color: "red" }}>❌ {error}</p>;
+  if (!guest) return <p style={{ textAlign: "center" }}>❌ Hakuna taarifa za mgeni huyu.</p>;
 
   return (
-    <div
-      className="invite-card"
-      style={{
-        maxWidth: "600px",
-        margin: "auto",
-        padding: "20px",
-        textAlign: "center",
-        fontFamily: "Arial, sans-serif",
-      }}
-    >
-      {/* =======================
-          KADI YA MWALIKO (Card)
-      =========================*/}
+    <div style={{ textAlign: "center", marginTop: "20px" }}>
+      {/* Kadi yenye background */}
       <div
-        className="card-wrapper"
+        ref={cardRef}
         style={{
+          width: "100%",
+          maxWidth: "720px",
+          aspectRatio: "16/9",
+          backgroundImage: `url(${loveImg})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          borderRadius: "15px",
           position: "relative",
-          marginBottom: "30px",
+          color: "white",
+          padding: "30px",
+          margin: "auto",
+          boxShadow: "0 5px 20px rgba(0,0,0,0.4)",
         }}
       >
-        <img
-          src={loveImg}
-          alt="Wedding Card"
-          style={{
-            width: "100%",
-            borderRadius: "10px",
-            boxShadow: "0 4px 10px rgba(0,0,0,0.2)",
-          }}
-        />
+        {/* Jina la mgeni */}
+        <h2 style={{ fontSize: "26px", fontWeight: "bold", marginTop: "20px" }}>
+          {guest.name.toUpperCase()}
+        </h2>
+        <p style={{ fontSize: "20px", marginBottom: "10px" }}>
+          {guest.type === "Double" ? "DOUBLE" : "SINGLE"} INVITATION
+        </p>
 
-        <div
-          style={{
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            color: "#fff",
-            textAlign: "center",
-            backgroundColor: "rgba(0, 0, 0, 0.4)",
-            padding: "15px 25px",
-            borderRadius: "10px",
-          }}
-        >
-          <p
-            style={{
-              fontSize: "22px",
-              fontWeight: "bold",
-              marginBottom: "8px",
-              textTransform: "uppercase",
-            }}
-          >
-            {guest.name}
-          </p>
-
+        {/* QR Code */}
+        <div style={{ marginTop: "15px" }}>
           <QRCode
             value={`https://wedding.nardio.online/invite/${uuid}`}
-            size={90}
+            size={100}
             bgColor="transparent"
             fgColor="#fff"
           />
+        </div>
 
-          <p
-            style={{
-              fontSize: "18px",
-              marginTop: "10px",
-              fontWeight: "bold",
-              textTransform: "uppercase",
-            }}
-          >
-            {guest.type || ""}
+        {/* Taarifa za sherehe */}
+        <div
+          style={{
+            position: "absolute",
+            bottom: "25px",
+            left: "50%",
+            transform: "translateX(-50%)",
+            width: "90%",
+            backgroundColor: "rgba(0,0,0,0.4)",
+            borderRadius: "10px",
+            padding: "10px 15px",
+            lineHeight: "1.5",
+          }}
+        >
+          <p style={{ fontWeight: "bold", fontSize: "18px" }}>
+            KADI YA MWALIKO
+          </p>
+          <p>
+            Ndugu {guest.name}, pokea kadi ya mwaliko wa sherehe ya Harusi ya{" "}
+            <strong>Flowen & Susan</strong>.
+          </p>
+          <p>🗓 Tarehe: Jumamosi, 18 Oktoba 2025</p>
+          <p>⏰ Muda: Saa 12 Jioni</p>
+          <p>📍 Mahali: Tughimbe Hall Mbeya - Simba Hall</p>
+          <p>📞 Mawasiliano: +255 743 181 756</p>
+          <p style={{ fontStyle: "italic", marginTop: "8px" }}>
+            Dress Code: Gentlemen - Black Suit | Ladies - Gold Dress
           </p>
         </div>
       </div>
 
-      {/* =======================
-          MAELEZO YA MWALIKO
-      =========================*/}
-      <div
-        className="invite-details"
+      {/* Button ya kupakua */}
+      <button
+        onClick={handleDownload}
         style={{
-          backgroundColor: "#fff8f0",
-          padding: "20px",
-          borderRadius: "10px",
-          boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
+          marginTop: "15px",
+          backgroundColor: "#f06292",
+          color: "white",
+          border: "none",
+          borderRadius: "8px",
+          padding: "10px 20px",
+          cursor: "pointer",
+          fontSize: "16px",
+          fontWeight: "bold",
         }}
       >
-        <h3 style={{ color: "#b56576", marginBottom: "10px" }}>
-          KADI YA MWALIKO
-        </h3>
-        <p style={{ fontSize: "16px", lineHeight: "1.6" }}>
-          Ndugu <strong>{guest.name}</strong>,<br />
-          Pokea kadi ya mwaliko wa sherehe ya Harusi ya{" "}
-          <strong>Flowen & Susan</strong>
-          <br />
-          <br />
-          🗓 <strong>Tarehe:</strong> Jumamosi, 18 Oktoba 2025
-          <br />
-          ⏰ <strong>Muda:</strong> Saa 12 Jioni
-          <br />
-          📍 <strong>Mahali:</strong> Tughimbe Hall Mbeya - Simba Hall
-          <br />
-          <br />
-          Kwa mawasiliano, wasiliana na{" "}
-          <strong>+255 743 181 756</strong>
-          <br />
-          <br />
-          Bofya hapa kupata taarifa zaidi, kuacha ujumbe wa sauti, na kuona
-          ramani ya eneo la tukio 👇
-          <br />
-          <a
-            href={`https://wedding.nardio.online/invite/${uuid}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              color: "#007bff",
-              textDecoration: "none",
-              fontWeight: "bold",
-            }}
-          >
-            https://wedding.nardio.online/invite/{uuid}
-          </a>
-          <br />
-          <br />
-          <strong>Karibu Sana!</strong> 💖
-        </p>
-      </div>
+        💌 Pakua Kadi
+      </button>
+
+      {/* Maelezo chini */}
+      <p style={{ marginTop: "10px", fontSize: "14px", color: "#555" }}>
+        Kisha tumia picha hii kumtumia mgeni kupitia WhatsApp.
+      </p>
     </div>
   );
 }
