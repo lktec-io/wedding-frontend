@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import QRCode from "react-qr-code";
-import loveImg from "../assets/love.jpg";
+import inviteTemplate from "../assets/love.jpg";
+// import "./InvitationCard.css";
 
 export default function InvitationCard() {
   const { uuid } = useParams();
@@ -26,43 +27,27 @@ export default function InvitationCard() {
     fetchGuest();
   }, [uuid]);
 
-  if (loading) return <p style={{ textAlign: "center" }}>⏳ Inapakia taarifa zako...</p>;
-  if (error) return <p style={{ textAlign: "center", color: "red" }}>❌ {error}</p>;
-  if (!guest || !guest.name) return <p style={{ textAlign: "center", color: "red" }}>❌ Hakuna taarifa za mgeni huyu.</p>;
+  if (loading) return <p className="loading">⏳ Inapakia taarifa zako...</p>;
+  if (error) return <p className="error">❌ {error}</p>;
 
   return (
     <div className="invite-card">
-      <div className="card-wrapper" style={{ position: "relative", textAlign: "left", marginTop: "50px" }}>
-        <div className="invite">
-          <img src={loveImg} alt="Wedding Card" />
-        </div>
+      <div className="card-wrapper">
+        <img src={inviteTemplate} alt="Wedding Invitation" className="card-image" />
 
-        <div
-          style={{
-            position: "absolute",
-            top: "60px",
-            left: "50%",
-            transform: "translateX(-50%)",
-            color: "#fff",
-            textAlign: "center",
-          }}
-        >
-          <p style={{ fontSize: "22px", fontWeight: "bold", marginBottom: "8px" }}>
-            {guest.name.toUpperCase()}
-          </p>
-
-          <QRCode
-            value={`https://wedding.nardio.online/invite/${uuid}`}
-            size={90}
-            bgColor="transparent"
-            fgColor="#fff"
-          />
-
-          {/* ✅ Onyesha Double / Single */}
-          <p style={{ fontSize: "18px", marginTop: "10px", fontWeight: "bold" }}>
-            {guest.type ? guest.type.toUpperCase() : ""}
-          </p>
-        </div>
+        {/* Overlay content */}
+        {guest && (
+          <div className="overlay-content">
+            <p className="guest-name">{guest.name.toUpperCase()}</p>
+            <QRCode
+              value={`https://wedding.nardio.online/invite/${uuid}`}
+              size={90}
+              bgColor="transparent"
+              fgColor="#fff"
+            />
+            <p className="guest-type">{guest.type?.toUpperCase()}</p>
+          </div>
+        )}
       </div>
     </div>
   );

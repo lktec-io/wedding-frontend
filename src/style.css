@@ -189,6 +189,62 @@ a:hover {
   padding: 0;
 }
 
+
+.invite-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.card-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 720px;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.card-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
+/* Overlay (adjust these values depending on Photoshop layout) */
+.overlay-content {
+  position: absolute;
+  right: 40px;
+  bottom: 120px;
+  color: #fff;
+  text-align: center;
+}
+
+.guest-name {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.guest-type {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.loading, .error {
+  text-align: center;
+}
+.error {
+  color: red;
+}
+
+
+
+
+
 h4 {
   font-size: 1.3em;
   color: #6b7280;
