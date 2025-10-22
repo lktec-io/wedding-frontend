@@ -7,7 +7,7 @@ export default function InvitationCard() {
   const [guest, setGuest] = useState(null);
 
   useEffect(() => {
-    fetch(`https://nardio.online/api/guest/${uuid}`)
+    fetch(`https://wedding.nardio.online/api/guest/${uuid}`)
       .then(res => res.json())
       .then(data => setGuest(data))
       .catch(err => console.error(err));
@@ -28,7 +28,7 @@ export default function InvitationCard() {
           color: "#fff"
         }}>
           <p style={{ fontSize: "20px", fontWeight: "bold" }}>{guest.name}</p>
-          <QRCode value={`https://nardio.online/invite/${uuid}`} size={90} />
+          <QRCode value={`https://wedding.nardio.online/invite/${uuid}`} size={90} />
         </div>
       </div>
     </div>
