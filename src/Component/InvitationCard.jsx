@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import QRCode from "react-qr-code";
-// import "./InvitationCard.css"; // Hakikisha style ipo
 import loveImg from "../assets/love.jpg";
 
 export default function InvitationCard() {
@@ -33,17 +32,11 @@ export default function InvitationCard() {
 
   return (
     <div className="invite-card">
-      <div className="card-wrapper" style={{ position: "relative", textAlign: "center", marginTop: "20px"  }}>
+      <div className="card-wrapper" style={{ position: "relative", textAlign: "left", marginTop: "50px" }}>
         <div className="invite">
-        <img
-          src={loveImg}
-          alt="Wedding Card"
-          // className="card-image"
-          // style={{ width: "100%", borderRadius: "10px" }}
-        />
+          <img src={loveImg} alt="Wedding Card" />
         </div>
 
-        {/* Guest name and QR code juu ya picha */}
         <div
           style={{
             position: "absolute",
@@ -57,25 +50,20 @@ export default function InvitationCard() {
           <p style={{ fontSize: "22px", fontWeight: "bold", marginBottom: "8px" }}>
             {guest.name.toUpperCase()}
           </p>
+
           <QRCode
             value={`https://wedding.nardio.online/invite/${uuid}`}
             size={90}
             bgColor="transparent"
             fgColor="#fff"
           />
+
+          {/* ✅ Onyesha Double / Single */}
+          <p style={{ fontSize: "18px", marginTop: "10px", fontWeight: "bold" }}>
+            {guest.type ? guest.type.toUpperCase() : ""}
+          </p>
         </div>
       </div>
-
-      {/* Familia section chini ya card */}
-      {/* <div className="familia" style={{ marginTop: "20px", textAlign: "center" }}>
-        <h4>
-          Familia ya Mr & Mrs Hagai Mwakalindile wanayo furaha kubwa
-          kukualika kwenye sherehe ya harusi ya Donewell & Mariam
-        </h4>
-        <p className="guest" style={{ fontWeight: "bold", marginTop: "10px" }}>
-          {guest.name.toUpperCase()}
-        </p>
-      </div> */}
     </div>
   );
 }

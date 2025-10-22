@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;600&display=swap");
 
+
 body {
   margin: 0;
   font-family: "Poppins", sans-serif;
@@ -185,6 +186,7 @@ a:hover {
   display: block;
   margin: 0 auto 1rem auto;
   border-radius: 10px 10px 0px 0px;
+  padding: 0;
 }
 
 h4 {
@@ -222,13 +224,13 @@ p {
 }
 
 .word h5{
-  font-family: "italiano", cursive;
+ font-family: 'Pacifico', cursive;
   color: #df3d07;
   font-size: 1.2em;
   font-weight: 500;
 }
 .word h2{
-  font-family: "italiano", cursive;
+ font-family: 'Pacifico', cursive;
   color: rgb(6, 95, 70);
   font-size: 1.8em;
   font-weight: 500;
@@ -239,7 +241,6 @@ p {
 }
 
 /* Floating button */
-
 .floating-buttons {
   position: fixed;
   bottom: 70px;
@@ -339,13 +340,16 @@ p {
   position: relative;
   width: 350px;
   max-width: 90%;
+  margin-top: 70px;
+  align-items: center;
+  margin-left: 20px;
 }
 
-.card-image {
+/* .card-image {
   width: 100%;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-}
+} */
 
 .overlay {
   position: absolute;
