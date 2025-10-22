@@ -65,7 +65,7 @@ export default function InvitationCard() {
       </div>
 
       {/* Familia section chini ya card */}
-      <div className="familia" style={{ marginTop: "20px", textAlign: "center" }}>
+      {/* <div className="familia" style={{ marginTop: "20px", textAlign: "center" }}>
         <h4>
           Familia ya Mr & Mrs Hagai Mwakalindile wanayo furaha kubwa
           kukualika kwenye sherehe ya harusi ya Donewell & Mariam
@@ -73,7 +73,7 @@ export default function InvitationCard() {
         <p className="guest" style={{ fontWeight: "bold", marginTop: "10px" }}>
           {guest.name.toUpperCase()}
         </p>
-      </div>
+      </div> */}
     </div>
   );
 }
