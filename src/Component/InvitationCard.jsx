@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import QRCode from "react-qr-code";
 import inviteTemplate from "../assets/love.jpg";
-// import "./InvitationCard.css"; // hakikisha umeimport css hii
+// import "./InvitationCard.css";
 
 export default function InvitationCard() {
   const { uuid } = useParams();
@@ -30,13 +30,19 @@ export default function InvitationCard() {
   if (loading) return <p className="loading">⏳ Inapakia taarifa zako...</p>;
   if (error) return <p className="error">❌ {error}</p>;
 
+  const splitName = guest?.name ? guest.name.split(" ") : [];
+
   return (
-    <div className="invite">
+    <div className="invite invite-card">
       <img src={inviteTemplate} alt="Wedding Invitation" />
 
       {guest && (
         <div className="overlay-content">
-          <p className="guest-name">{guest.name.toUpperCase()}</p>
+          <p className="guest-name">
+            {splitName[0]?.toUpperCase()}
+            <br />
+            {splitName[1]?.toUpperCase()}
+          </p>
 
           <div className="qr-box">
             <QRCode
@@ -46,6 +52,7 @@ export default function InvitationCard() {
               fgColor="#fff"
             />
           </div>
+
           <p className="guest-type">{guest.type?.toUpperCase()}</p>
         </div>
       )}

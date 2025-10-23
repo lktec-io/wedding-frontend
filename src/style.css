@@ -239,30 +239,41 @@ a:hover {
 
 .invite img {
   width: 100%;
-  height: auto; /* picha ijaze full screen height */
+  height: 100vh;
   object-fit: cover;
   display: block;
 }
 
-/* Overlay content (chini kulia) */
+/* Overlay content (kona ya chini kulia) */
 .overlay-content {
   position: absolute;
-  bottom: 40px;
-  right: 40px;
+  bottom: 25px;
+  right: 25px;
   color: #fff;
-  text-align: center;
+  text-align: right;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 6px;
+  align-items: flex-end;
+  gap: 8px;
 }
 
-/* QR Code style */
+/* Jina lililogawanyika */
+.guest-name {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.8em;
+  font-weight: 700;
+  font-family: "Inter", sans-serif;
+  letter-spacing: 1px;
+  line-height: 1.2;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+/* QR box */
 .qr-box {
-  background: rgba(133, 133, 133, 0.15); /* translucent background */
+  background: rgba(82, 82, 82, 0.15);
   padding: 10px;
   border-radius: 15px;
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(6px);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   transition: all 0.3s ease-in-out;
 }
@@ -270,28 +281,21 @@ a:hover {
 .qr-box:hover {
   transform: scale(1.05);
 }
-/* Guest name & type */
-.guest-name {
-  color: rgba(255, 255, 255, 0.786);
-  font-size: 1.7em;
-  font-weight: 600;
-  font-family: "Inter", sans-serif;
-  letter-spacing: 1px;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
-}
 
+/* Guest type */
 .guest-type {
-  font-size: 18px;
-  font-weight: 500;
+  font-family: 'Pacifico', cursive;
+  color: rgb(255, 255, 255);
+  font-size: 1rem;
+  font-weight: 600;
   text-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
-   font-family: 'Pacifico', cursive;
-  color: rgb(125, 137, 134);
 }
 
-/* Loader & error */
-.loading, .error {
+.loading,
+.error {
   text-align: center;
 }
+
 .error {
   color: red;
 }
@@ -362,8 +366,8 @@ p {
 .phone-btn,
 .whatsapp-btn {
   border-radius: 50%;
-  width: 31%;
-  height: 2vh;
+  width: 31.5%;
+  height: 2.1vh;
   padding: 11px;
   display: flex;
   align-items: center;

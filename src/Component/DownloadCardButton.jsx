@@ -1,5 +1,4 @@
 import html2canvas from "html2canvas";
-import jsPDF from "jspdf";
 
 export default function DownloadCardButton() {
   const handleDownload = async () => {
@@ -10,23 +9,18 @@ export default function DownloadCardButton() {
       return;
     }
 
-    // snapshot ya card nzima
+    // Snapshot ya card nzima
     const canvas = await html2canvas(card, {
       useCORS: true,
-      scale: 2, // inafanya picha iwe na ubora mkubwa
+      scale: 2,
     });
 
-    const imgData = canvas.toDataURL("image/png");
-    const pdf = new jsPDF({
-      orientation: "portrait",
-      unit: "pt",
-      format: "a4",
-    });
+    const image = canvas.toDataURL("image/jpeg", 1.0); // save as JPG
 
-    const width = pdf.internal.pageSize.getWidth();
-    const height = (canvas.height * width) / canvas.width;
-    pdf.addImage(imgData, "PNG", 0, 0, width, height);
-    pdf.save("KadiYako.pdf");
+    const link = document.createElement("a");
+    link.href = image;
+    link.download = "KadiYako.jpg";
+    link.click();
   };
 
   return (
