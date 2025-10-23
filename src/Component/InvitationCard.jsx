@@ -33,8 +33,8 @@ export default function InvitationCard() {
   if (error) return <p className="error">❌ {error}</p>;
 
   return (
-    <div className="invite-card">
-      <div className="card-wrapper">
+    // <div className="invite-card">
+    //   <div className="card-wrapper">
         <div className="invite">
           <img
             src={inviteTemplate}
@@ -42,6 +42,9 @@ export default function InvitationCard() {
             // className="card-image"
           />
         </div>
+        );
+}
+
         {/* Overlay content */}
         {/* {guest && (
           <div className="overlay-content">
@@ -55,7 +58,6 @@ export default function InvitationCard() {
             <p className="guest-type">{guest.type?.toUpperCase()}</p>
           </div>
         )} */}
-      </div>
-    </div>
-  );
-}
+      {/* </div> */}
+    {/* </div> */}
+  
