@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import QRCode from "react-qr-code";
 import inviteTemplate from "../assets/love.jpg";
-// import "./InvitationCard.css";
+
 
 export default function InvitationCard() {
   const { uuid } = useParams();
