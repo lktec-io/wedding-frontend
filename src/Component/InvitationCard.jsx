@@ -41,12 +41,9 @@ export default function InvitationCard() {
             alt="Wedding Invitation"
             // className="card-image"
           />
-        </div>
-        );
-}
 
-        {/* Overlay content */}
-        {/* {guest && (
+ {/* Overlay content */}
+        {guest && (
           <div className="overlay-content">
             <p className="guest-name">{guest.name.toUpperCase()}</p>
             <QRCode
@@ -57,7 +54,12 @@ export default function InvitationCard() {
             />
             <p className="guest-type">{guest.type?.toUpperCase()}</p>
           </div>
-        )} */}
-      {/* </div> */}
-    {/* </div> */}
+        )}
+   
+
+        </div>
+        );
+}
+
+       
   
