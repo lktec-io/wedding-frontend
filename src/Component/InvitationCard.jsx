@@ -49,7 +49,7 @@ export default function InvitationCard() {
               value={`https://wedding.nardio.online/invite/${uuid}`}
               size={90}
               bgColor="transparent"
-              fgColor="#fff"
+              fgColor="#151313ff"
             />
             <p className="guest-type">{guest.type?.toUpperCase()}</p>
           </div>
