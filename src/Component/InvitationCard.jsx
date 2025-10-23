@@ -39,10 +39,10 @@ export default function InvitationCard() {
       {guest && (
         <div className="overlay-content">
           <p className="guest-name">
-            {splitName[0]?.toUpperCase()}
-            <br />
-            {splitName[1]?.toUpperCase()}
-          </p>
+  {splitName[0]?.toUpperCase()}
+  {splitName[1] ? <><br />{splitName[1]?.toUpperCase()}</> : ""}
+</p>
+
 
           <div className="qr-box">
             <QRCode
