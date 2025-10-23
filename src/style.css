@@ -203,17 +203,17 @@ a:hover {
   margin: 0;
 } */
 
-
+/* 
 .card-wrapper {
   position: relative;
-  width: 100%;
+  width: 100%; */
   /* max-width: 720px; */
-  height: auto;
+  /* height: auto; */
   /* aspect-ratio: 4/ 4; unaweza kurekebisha kama unataka uwiano tofauti */
-  overflow: hidden;
+  /* overflow: hidden;
   border-radius: 10px 10px 0px 0px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-}
+} */
 
 /* Hii sasa inafanya image ijae full */
 /* .card-image {
