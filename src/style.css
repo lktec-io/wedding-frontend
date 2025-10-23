@@ -180,7 +180,12 @@ a:hover {
   background-color: rgba(220, 108, 10, 0.306);
 }
 
-/* .invite img {
+
+.invite {
+  text-align: center;
+}
+
+.invite img {
   max-width: 100%;
   height: auto;
   object-fit: cover;
@@ -188,14 +193,15 @@ a:hover {
   margin: 0 auto 1rem auto;
   border-radius: 10px 10px 0px 0px;
   padding: 0;
-} */
-.invite-card {
+}
+
+/* .invite-card {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 0;
   margin: 0;
-}
+} */
 
 
 .card-wrapper {
@@ -210,14 +216,14 @@ a:hover {
 }
 
 /* Hii sasa inafanya image ijae full */
-.card-image {
+/* .card-image {
   width: 100%;
   height: auto;
   object-fit: cover;
   display: block;
   padding: 0;
   margin: 0;
-}
+} */
 
 /* Overlay (adjust these values depending on Photoshop layout) */
 .overlay-content {

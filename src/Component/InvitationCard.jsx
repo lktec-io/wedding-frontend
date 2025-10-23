@@ -13,7 +13,9 @@ export default function InvitationCard() {
   useEffect(() => {
     const fetchGuest = async () => {
       try {
-        const res = await fetch(`https://wedding.nardio.online/api/guest/${uuid}`);
+        const res = await fetch(
+          `https://wedding.nardio.online/api/guest/${uuid}`
+        );
         if (!res.ok) throw new Error("Guest not found");
         const data = await res.json();
         setGuest(data);
@@ -33,8 +35,13 @@ export default function InvitationCard() {
   return (
     <div className="invite-card">
       <div className="card-wrapper">
-        <img src={inviteTemplate} alt="Wedding Invitation" className="card-image" />
-
+        <div className="invite">
+          <img
+            src={inviteTemplate}
+            alt="Wedding Invitation"
+            // className="card-image"
+          />
+        </div>
         {/* Overlay content */}
         {guest && (
           <div className="overlay-content">
