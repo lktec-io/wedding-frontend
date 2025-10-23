@@ -56,9 +56,6 @@ export default function InvitationCard() {
             alt="Wedding Invitation"
             // className="card-image"
           />
-
-
-
         </div>
         );
 }
