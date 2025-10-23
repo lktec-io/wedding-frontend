@@ -1,49 +1,46 @@
 import { useState, useEffect } from 'react';
 import './RSVPSection.css';
 import Scrollup from './Scrollup';
-import Floating from './Floating';
+import Floating from './Floating'
 
 export default function RSVPSection() {
   const [response, setResponse] = useState(null);
-  const [showPopup, setShowPopup] = useState(false);
-  const [popupText, setPopupText] = useState('');
+  const [showPetals, setShowPetals] = useState(false);
 
-  const handleResponse = (type) => {
-    if (type === 'yes') {
-      setPopupText('💚 Asante! Ujumbe wako umepokelewa, tunakutarajia!');
-    } else {
-      setPopupText('😔 Ujumbe wako umepokelewa, tutakukosa!');
-    }
+  const handleYesClick = () => {
+    setResponse('yes');
+    setShowPetals(true);
 
-    setResponse(type);
-    setShowPopup(true);
-
-    // popup ipotee baada ya sekunde 3
-    setTimeout(() => setShowPopup(false), 3000);
+    // Petals disappear after 2.5 seconds
+    setTimeout(() => {
+      setShowPetals(false);
+    }, 2500);
   };
+
+  useEffect(() => {
+    if (showPetals) {
+      const container = document.querySelector('.rsvp');
+      for (let i = 0; i < 30; i++) {
+        const petal = document.createElement('div');
+        petal.className = 'petal';
+        petal.style.left = `${Math.random() * 100}%`;
+        petal.style.animationDelay = `${Math.random()}s`;
+        container.appendChild(petal);
+        setTimeout(() => petal.remove(), 2500);
+      }
+    }
+  }, [showPetals]);
 
   return (
     <div className="rsvp">
-      <Scrollup />
-      <Floating />
-
+      <Scrollup/>
+   <Floating/>
       <h2>Utajumuika Nasi?</h2>
-
       <div className="rsvp-buttons">
-        <button className="yes-btn" onClick={() => handleResponse('yes')}>
-          ✓ Ndiyo, Nitakuwepo
-        </button>
-        <button className="no-btn" onClick={() => handleResponse('no')}>
-          ✗ Hapana, Sitakuwepo
-        </button>
+        <button className="yes-btn" onClick={handleYesClick}>✓ Ndiyo, Nitakuwepo</button>
+        <button className="no-btn" onClick={() => setResponse('no')}>✗ Hapana, Sitakuwepo</button>      
       </div>
-
-      {/* ✅ Popup Message */}
-      {showPopup && (
-        <div className="popup-message">
-          {popupText}
-        </div>
-      )}
+      {response && <p className="confirmation">✅ Asante! Ujumbe wako umepokelewa.</p>}
     </div>
   );
 }
