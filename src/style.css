@@ -239,40 +239,59 @@ a:hover {
 
 .invite img {
   width: 100%;
-  height: auto; /* picha ijaze full height ya screen */
-  object-fit: cover; /* ijaze vizuri bila kuacha space */
+  height: auto; /* picha ijaze full screen height */
+  object-fit: cover;
   display: block;
 }
 
-/* Overlay content juu ya picha */
+/* Overlay content (chini kulia) */
 .overlay-content {
   position: absolute;
-  top: 50%; /* kati ya picha */
-  left: 50%;
-  transform: translate(-50%, -50%);
+  bottom: 60px;
+  right: 60px;
   color: #fff;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
 }
 
+/* QR Code style */
+.qr-box {
+  background: rgba(255, 255, 255, 0.15); /* translucent background */
+  padding: 12px;
+  border-radius: 15px;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease-in-out;
+}
+
+.qr-box:hover {
+  transform: scale(1.05);
+}
+
+/* Guest name & type */
 .guest-name {
-  font-size: 25px;
-  font-weight: bold;
-  margin-bottom: 8px;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
 }
 
 .guest-type {
   font-size: 18px;
-  font-weight: bold;
-  margin-top: 10px;
+  font-weight: 600;
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
 }
 
+/* Loader & error */
 .loading, .error {
   text-align: center;
 }
 .error {
   color: red;
 }
-
 
 
 

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import QRCode from "react-qr-code";
 import inviteTemplate from "../assets/love.jpg";
+// import "./InvitationCard.css"; // hakikisha umeimport css hii
 
 export default function InvitationCard() {
   const { uuid } = useParams();
@@ -32,15 +33,20 @@ export default function InvitationCard() {
   return (
     <div className="invite">
       <img src={inviteTemplate} alt="Wedding Invitation" />
+
       {guest && (
         <div className="overlay-content">
           <p className="guest-name">{guest.name.toUpperCase()}</p>
-          <QRCode
-            value={`https://wedding.nardio.online/invite/${uuid}`}
-            size={100}
-            bgColor="transparent"
-            fgColor="#fff"
-          />
+
+          <div className="qr-box">
+            <QRCode
+              value={`https://wedding.nardio.online/invite/${uuid}`}
+              size={100}
+              bgColor="transparent"
+              fgColor="#fff"
+            />
+          </div>
+
           <p className="guest-type">{guest.type?.toUpperCase()}</p>
         </div>
       )}
