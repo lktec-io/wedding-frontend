@@ -260,8 +260,8 @@ a:hover {
 /* Jina lililogawanyika */
 .guest-name {
   color: rgba(255, 255, 255, 0.9);
-  font-size: 1.5em;
-  font-weight: 700;
+  font-size: 1.2em;
+  font-weight: 600;
   font-family: "Inter", sans-serif;
   letter-spacing: 1px;
   line-height: 1.2;
@@ -271,8 +271,8 @@ a:hover {
 /* QR box */
 .qr-box {
   background: rgba(205, 205, 205, 0.15);
-  padding: 8px;
-  border-radius: 15px;
+  padding: 10px;
+  border-radius: 12px;
   backdrop-filter: blur(4px);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   transition: all 0.3s ease-in-out;
@@ -286,8 +286,8 @@ a:hover {
 .guest-type {
   font-family: 'Pacifico', cursive;
   color: rgb(255, 255, 255);
-  font-size: 1rem;
-  font-weight: 400;
+  font-size: 0.9rem;
+  font-weight: 100;
   text-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
 }
 
@@ -295,7 +295,6 @@ a:hover {
 .error {
   text-align: center;
 }
-
 .error {
   color: red;
 }
