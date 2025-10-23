@@ -37,7 +37,7 @@ export default function InvitationCard() {
           <p className="guest-name">{guest.name.toUpperCase()}</p>
           <QRCode
             value={`https://wedding.nardio.online/invite/${uuid}`}
-            size={90}
+            size={100}
             bgColor="transparent"
             fgColor="#fff"
           />
