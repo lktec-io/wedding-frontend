@@ -43,7 +43,7 @@ export default function InvitationCard() {
           />
         </div>
         {/* Overlay content */}
-        {guest && (
+        {/* {guest && (
           <div className="overlay-content">
             <p className="guest-name">{guest.name.toUpperCase()}</p>
             <QRCode
@@ -54,7 +54,7 @@ export default function InvitationCard() {
             />
             <p className="guest-type">{guest.type?.toUpperCase()}</p>
           </div>
-        )}
+        )} */}
       </div>
     </div>
   );
