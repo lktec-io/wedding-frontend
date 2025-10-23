@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 import QRCode from "react-qr-code";
 import inviteTemplate from "../assets/love.jpg";
 
-
 export default function InvitationCard() {
   const { uuid } = useParams();
   const [guest, setGuest] = useState(null);
@@ -30,7 +29,15 @@ export default function InvitationCard() {
   if (loading) return <p className="loading">⏳ Inapakia taarifa zako...</p>;
   if (error) return <p className="error">❌ {error}</p>;
 
-  const splitName = guest?.name ? guest.name.split(" ") : [];
+  // Safely split the name (avoid breaking if null or empty)
+  const splitName =
+    typeof guest?.name === "string" && guest.name.trim().length > 0
+      ? guest.name.split(" ")
+      : [];
+
+  const firstName = splitName[0]?.toUpperCase() || "";
+  const lastName = splitName[1]?.toUpperCase() || "";
+  const guestType = guest?.type ? guest.type.toUpperCase() : "";
 
   return (
     <div className="invite invite-card">
@@ -39,22 +46,26 @@ export default function InvitationCard() {
       {guest && (
         <div className="overlay-content">
           <p className="guest-name">
-  {splitName[0]?.toUpperCase()}
-  {splitName[1] ? <><br />{splitName[1]?.toUpperCase()}</> : ""}
-</p>
-
+            {firstName}
+            {lastName && (
+              <>
+                <br />
+                {lastName}
+              </>
+            )}
+          </p>
 
           <div className="qr-box">
             <QRCode
               value={`https://wedding.nardio.online/invite/${uuid}`}
               size={75}
-              level={"L"}
+              level="L"
               bgColor="transparent"
               fgColor="#fff"
             />
           </div>
 
-          <p className="guest-type">{guest.type?.toUpperCase()}</p>
+          <p className="guest-type">{guestType}</p>
         </div>
       )}
     </div>
