@@ -1,96 +1,77 @@
 @import url("https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;600&display=swap");
-body{
-      background: rgba(255, 255, 255, 0.581);
-  backdrop-filter: blur(10px);
-}
+
 .salamu {
   margin-top: 2rem;
   text-align: center;
-  /* background: linear-gradient(to bottom, #fff5f5, #fff); */
-  /* border-radius: 16px; */
   padding: 2rem;
-  /* box-shadow: 0 4px 10px rgba(0,0,0,0.08); */
-  max-width: 400px;
+  border-radius: 16px;
+  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.55);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+  max-width: 420px;
   margin-left: auto;
   margin-right: auto;
+  position: relative;
 }
 
 .salamu h3 {
   font-family: 'Poppins', sans-serif;
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   font-weight: 600;
   color: #222;
-  margin-bottom: 0.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
+  margin-bottom: 0.6rem;
 }
-
-/* .icon-mic {
-  color: #8b5cf6;
-} */
 
 .salamu p {
   font-size: 1rem;
-  margin-bottom: 1rem;
-  color: #6b7280;
-}
-
-.preview-label {
-  font-size: 1rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  color: #000000;
-}
-
-.audio-player {
-  width: 100%;
-  border-radius: 10px;
+  color: #555;
   margin-bottom: 1rem;
 }
 
 .record-btn,
-.stop-btn {
-  background-color: #df3d07;
-  color: white;
-  padding: 1rem 1.3rem;
-  border: none;
-  border-radius: 8px;
-  font-size: 0.9rem;
-  cursor: pointer;
-  transition: transform 0.3s ease, background 0.3s ease;
+.stop-btn,
+.retry-btn,
+.send-btn {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  margin-left: 30px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.record-btn {
+  background: #e63946;
+  color: #fff;
+  padding: 1rem 1.5rem;
+}
+
+.stop-btn {
+  background: #ef4444;
+  color: #fff;
+  padding: 0.8rem 1.2rem;
 }
 
 .retry-btn {
-  background-color: white;
-  color: rgba(0, 0, 0, 0.8);
-  border: 1px solid rgba(139, 139, 139, 0.3);
-  padding: 0.6rem 1.3rem;
-  border-radius: 8px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 6px;
+  background: #fff;
+  border: 1px solid #aaa;
+  padding: 0.6rem 1.2rem;
 }
 
 .send-btn {
-  background-color: #10b981;
+  background: #10b981;
   color: white;
-  font-weight: 500;
-  font-size: 0.9rem;
-  border: none;
-  border-radius: 8px;
-  padding: 0.6rem 1.3rem;
-  cursor: pointer;
+  padding: 0.6rem 1.2rem;
+}
+
+.button-row {
   display: flex;
-  align-items: center;
-  gap: 6px;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 0.5rem;
 }
 
 .record-btn:hover,
@@ -100,119 +81,34 @@ body{
   transform: scale(1.05);
 }
 
-.button-row {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-top: 0.5rem;
-  flex-wrap: nowrap;
-}
-
-p .recording {
-  font-weight: 600;
-  color: rgb(231, 76, 60);
-}
-
-
-.saving {
-   color: rgb(6, 95, 70);
-    border-width: 1px;
-    border-style: solid;
-    border-color: rgb(122, 238, 184);
-    border-image: initial;
-  animation: fadeIn 0.5s ease-in;
-  font-size: 1em;
-  font-weight: 100;
+/* Popup Message */
+.popup-message {
+  position: fixed;
+  top: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #d1fae5;
+  color: #065f46;
+  font-weight: 500;
+  padding: 0.8rem 1.5rem;
   border-radius: 10px;
-  padding: 20px;
-  background-color: rgba(195, 244, 191, 0.192);
-  animation: fadeIn 0.5s ease-in;
-font-family: 'Poppins', sans-serif;
-
-  animation: pulse 1s infinite;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  animation: slideDown 0.4s ease, fadeOut 3s ease forwards;
+  z-index: 9999;
 }
 
-.confirmate {
-    color: rgb(6, 95, 70);
-    border-width: 1px;
-    border-style: solid;
-    border-color: rgb(122, 238, 184);
-    border-image: initial;
-  animation: fadeIn 0.5s ease-in;
-  font-size: 1em;
-  font-weight: 100;
-  border-radius: 10px;
-  padding: 20px;
-  background-color: rgba(195, 244, 191, 0.192);
-  animation: fadeIn 0.5s ease-in;
-font-family: 'Poppins', sans-serif;}
-
-/* Animations */
-@keyframes pulse {
-  0% { opacity: 1; }
-  50% { opacity: 0.5; }
-  100% { opacity: 1; }
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@media (max-width: 768px) {
-  .salamu {
-    padding: 1rem;
-    max-width: 90%;
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -30px);
   }
-
-  .salamu h3 {
-    font-size: 1.5rem;
-    gap: 8px;
-  }
-
-  .icon-mic {
-    font-size: 1.5rem;
-  }
-
-  .salamu p,
-  .preview-label {
-    font-size: 1.1rem;
-  }
-
-  .audio-player {
-    margin: 1rem auto;
-  }
-
-  /* === BUTTONS on same line even on mobile === */
-  .button-row {
-    flex-direction: row; /* badala ya column */
-    flex-wrap: nowrap;
-    justify-content: center;
-    gap: 0.7rem;
-  }
-
-  .record-btn,
-  .stop-btn,
-  .retry-btn,
-  .send-btn {
-    font-size: 0.9rem;
-    padding: 0.6rem 1rem;
-  }
-
-  .saving, .confirmation {
-    font-size: 1.1rem;
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
   }
 }
 
-
-/* --- Animations --- */
-@keyframes pulse {
-  0% { opacity: 1; }
-  50% { opacity: 0.5; }
-  100% { opacity: 1; }
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+@keyframes fadeOut {
+  0%, 80% { opacity: 1; }
+  100% { opacity: 0; }
 }
