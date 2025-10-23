@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import QRCode from "react-qr-code";
 import inviteTemplate from "../assets/love.jpg";
-// import "./InvitationCard.css";
 
 export default function InvitationCard() {
   const { uuid } = useParams();
@@ -13,9 +12,7 @@ export default function InvitationCard() {
   useEffect(() => {
     const fetchGuest = async () => {
       try {
-        const res = await fetch(
-          `https://wedding.nardio.online/api/guest/${uuid}`
-        );
+        const res = await fetch(`https://wedding.nardio.online/api/guest/${uuid}`);
         if (!res.ok) throw new Error("Guest not found");
         const data = await res.json();
         setGuest(data);
@@ -33,32 +30,20 @@ export default function InvitationCard() {
   if (error) return <p className="error">❌ {error}</p>;
 
   return (
-    // <div className="invite-card">
-    //   <div className="card-wrapper">
-        <div className="invite">
-          <img
-            src={inviteTemplate}
-            alt="Wedding Invitation"
-            // className="card-image"          
+    <div className="invite">
+      <img src={inviteTemplate} alt="Wedding Invitation" />
+      {guest && (
+        <div className="overlay-content">
+          <p className="guest-name">{guest.name.toUpperCase()}</p>
+          <QRCode
+            value={`https://wedding.nardio.online/invite/${uuid}`}
+            size={90}
+            bgColor="transparent"
+            fgColor="#fff"
           />
- {/* Overlay content */}
-        {guest && (
-          <div className="overlay-content">
-            <p className="guest-name">{guest.name.toUpperCase()}</p>
-            <QRCode
-              value={`https://wedding.nardio.online/invite/${uuid}`}
-              size={90}
-              bgColor="transparent"
-              fgColor="#151313ff"
-            />
-            <p className="guest-type">{guest.type?.toUpperCase()}</p>
-          </div>
-        )}
-   
-
+          <p className="guest-type">{guest.type?.toUpperCase()}</p>
         </div>
-        );
+      )}
+    </div>
+  );
 }
-
-       
-  
