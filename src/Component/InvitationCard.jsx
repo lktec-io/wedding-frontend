@@ -36,8 +36,12 @@ export default function InvitationCard() {
     // <div className="invite-card">
     //   <div className="card-wrapper">
         <div className="invite">
-
-           {/* Overlay content */}
+          <img
+            src={inviteTemplate}
+            alt="Wedding Invitation"
+            // className="card-image"          
+          />
+ {/* Overlay content */}
         {guest && (
           <div className="overlay-content">
             <p className="guest-name">{guest.name.toUpperCase()}</p>
@@ -51,11 +55,7 @@ export default function InvitationCard() {
           </div>
         )}
    
-          <img
-            src={inviteTemplate}
-            alt="Wedding Invitation"
-            // className="card-image"
-          />
+
         </div>
         );
 }
