@@ -25,10 +25,9 @@ export default function CountdownOnly() {
 
     return () => clearInterval(timer);
   }, []);
-
   return (
     <section className="countdown-section">
-      <h2 className="countdown-title">💛 Muda uliosalia kufika siku ya furaha yetu 💍</h2>
+      <h2 className="countdown-title"> 💞 Muda uliosalia kufika siku ya furaha yetu </h2>
 
       <div className="countdown">
         <div>
