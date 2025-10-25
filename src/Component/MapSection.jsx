@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./MapSection.css";
+
 
 export default function MapSection() {
   const [isInteractive, setIsInteractive] = useState(false);
