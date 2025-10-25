@@ -34,7 +34,6 @@ export default function RSVPSection() {
   };
 
   const closePopup = () => setShowPopup(false);
-
   useEffect(() => {
     if (showPetals) {
       const container = document.querySelector(".rsvp");
