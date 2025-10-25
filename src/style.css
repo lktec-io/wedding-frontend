@@ -143,11 +143,12 @@ a:hover {
   box-shadow: 0 0 20px rgba(153, 153, 153, 0.2);
   border-radius: 8px;
   margin-top: 1.5rem;
-  touch-action: auto; /* badilisha none -> auto */ 
+  touch-action: auto;
   outline: none;
   cursor: grab;
   position: relative;
 }
+
 
 
 .location {
