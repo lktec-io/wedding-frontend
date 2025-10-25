@@ -16,8 +16,7 @@ export default function Family() {
   return (
     <div className="familia">
       <h4>
-        Familia ya Mr & Mrs Hagai Mwakalindile wanayo furaha kubwa
-        kukualika kwenye sherehe ya harusi ya Donewell & Mariam
+        Familia ya Mr & Mrs Hagai Mwakalindile wanayo furaha kubwa kukualika:
       </h4>
       <p className="guest">{guest.name.toUpperCase()}</p>
     </div>
