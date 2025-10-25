@@ -61,13 +61,9 @@ export default function InvitationCard() {
             <QRCode
               value={`https://wedding.nardio.online/invite/${uuid}`}
               size={85}
-              level="H"
+              level="L"
               bgColor="#ffffff" // background nyeupe
               fgColor="#000000" // QR nyeusi
-              style={{
-                borderRadius: "10px",
-                padding: "6px",
-              }}
             />
           </div>
 
