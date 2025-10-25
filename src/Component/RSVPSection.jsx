@@ -7,21 +7,30 @@ export default function RSVPSection() {
   const [response, setResponse] = useState(null);
   const [showPetals, setShowPetals] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
+  const [sending, setSending] = useState(false); // 🌟 added state
 
   const handleYesClick = () => {
-    setResponse("yes");
-    setShowPetals(true);
-    setShowPopup(true);
-
-    // Petals disappear after 2.5 seconds
+    setSending(true); // onyesha "inatuma..."
     setTimeout(() => {
-      setShowPetals(false);
-    }, 2500);
+      setSending(false);
+      setResponse("yes");
+      setShowPetals(true);
+      setShowPopup(true);
+
+      // Petals disappear after 2.5 seconds
+      setTimeout(() => {
+        setShowPetals(false);
+      }, 2500);
+    }, 1500); // muda wa kutuma (sekunde 1.5)
   };
 
   const handleNoClick = () => {
-    setResponse("no");
-    setShowPopup(true);
+    setSending(true);
+    setTimeout(() => {
+      setSending(false);
+      setResponse("no");
+      setShowPopup(true);
+    }, 1500);
   };
 
   const closePopup = () => setShowPopup(false);
@@ -47,13 +56,16 @@ export default function RSVPSection() {
       <h2>Utajumuika Nasi?</h2>
 
       <div className="rsvp-buttons">
-        <button className="yes-btn" onClick={handleYesClick}>
+        <button className="yes-btn" onClick={handleYesClick} disabled={sending}>
           ✓ Ndiyo, Nitakuwepo
         </button>
-        <button className="no-btn" onClick={handleNoClick}>
+        <button className="no-btn" onClick={handleNoClick} disabled={sending}>
           ✗ Hapana, Sitakuwepo
         </button>
       </div>
+
+      {/* ⏳ Loading Message */}
+      {sending && <p className="sending">⏳ Inatuma ujumbe wako...</p>}
 
       {/* 🌸 Popup Modal */}
       {showPopup && (
