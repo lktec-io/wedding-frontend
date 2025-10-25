@@ -12,7 +12,9 @@ export default function InvitationCard() {
   useEffect(() => {
     const fetchGuest = async () => {
       try {
-        const res = await fetch(`https://wedding.nardio.online/api/guest/${uuid}`);
+        const res = await fetch(
+          `https://wedding.nardio.online/api/guest/${uuid}`
+        );
         if (!res.ok) throw new Error("Guest not found");
         const data = await res.json();
         setGuest(data);
@@ -58,10 +60,14 @@ export default function InvitationCard() {
           <div className="qr-box">
             <QRCode
               value={`https://wedding.nardio.online/invite/${uuid}`}
-              size={75}
-              level="L"
-              bgColor="transparent"
-              fgColor="#fff"
+              size={85}
+              level="H"
+              bgColor="#ffffff" // background nyeupe
+              fgColor="#000000" // QR nyeusi
+              style={{
+                borderRadius: "10px",
+                padding: "6px",
+              }}
             />
           </div>
 
