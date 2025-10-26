@@ -286,6 +286,7 @@ a:hover {
   line-height: 1.3;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
   text-align: right;
+  margin-top: 10px;
 }
 
 /* QR + Type container */
