@@ -286,7 +286,7 @@ a:hover {
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
   text-align: right;
   margin-bottom: 0; /* Ondoa space kubwa chini */
-  margin-top: 3px; /* Ongeza space kidogo juu ya name ili ipande juu */
+  margin-top: 7px; /* Ongeza space kidogo juu ya name ili ipande juu */
 }
 
 /* QR + Type container */
