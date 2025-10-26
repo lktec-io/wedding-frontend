@@ -250,16 +250,29 @@ a:hover {
 }
 
 /* Overlay content (kona ya chini kulia) */
-.overlay-content {
+/* .overlay-content {
   position: absolute;
   bottom: 20px;
-  right: 25px;
+  right: 22px;
   color: #fff;
   text-align: right;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  /* gap: 8px; */
+} */
+
+
+/* Overlay content (kona ya chini kulia) */
+.overlay-content {
+  position: absolute;
+  bottom: 20px;
+  right: 22px;
+  color: #fff;
+  display: flex;
+  flex-direction: row; /* mpangilio wa mlalo */
+  align-items: center; /* weka vitu katikati */
+  gap: 15px; /* nafasi kati ya jina na QR */
+  text-align: right;
 }
 
 /* Jina lililogawanyika */
@@ -269,14 +282,15 @@ a:hover {
   font-weight: 600;
   font-family: "Inter", sans-serif;
   letter-spacing: 1px;
-  line-height: 1.2;
+  line-height: 1.3;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+  text-align: right;
 }
 
 /* QR box */
 .qr-box {
   background: #fff;
-  padding: 5px 5px 5px 5px;
+  padding: 6px;
   border-radius: 5px;
   box-shadow: 0 6px 25px rgba(0, 0, 0, 0.25);
   display: inline-block;
