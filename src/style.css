@@ -267,16 +267,15 @@ a:hover {
 .overlay-content {
   position: absolute;
   bottom: 20px;
-  right: 35px; /* imeongezwa kidogo kusogeza kulia */
+  right: 35px;
   color: #fff;
   display: flex;
   flex-direction: row;
-  align-items: flex-end; /* ili qr na jina vi-align vizuri */
+  align-items: flex-start; /* Badilisha kutoka flex-end -> flex-start ili items zipande juu kidogo */
   gap: 15px;
   text-align: right;
 }
 
-/* Jina lililogawanyika */
 .guest-name {
   color: rgba(255, 255, 255, 0.9);
   font-size: 1.5em;
@@ -286,7 +285,8 @@ a:hover {
   line-height: 1.3;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
   text-align: right;
-  margin-bottom: 15px;
+  margin-bottom: 0; /* Ondoa space kubwa chini */
+  margin-top: 5px; /* Ongeza space kidogo juu ya name ili ipande juu */
 }
 
 /* QR + Type container */
