@@ -46,29 +46,31 @@ export default function InvitationCard() {
       <img src={inviteTemplate} alt="Wedding Invitation" />
 
       {guest && (
-        <div className="overlay-content">
-          <p className="guest-name">
-            {firstName}
-            {lastName && (
-              <>
-                <br />
-                {lastName}
-              </>
-            )}
-          </p>
+      <div className="overlay-content">
+  <p className="guest-name">
+    {firstName}
+    {lastName && (
+      <>
+        <br />
+        {lastName}
+      </>
+    )}
+  </p>
 
-          <div className="qr-box">
-            <QRCode
-              value={`https://wedding.nardio.online/invite/${uuid}`}
-              size={85}
-              level="L"
-              bgColor="#ffffff" // background nyeupe
-              fgColor="#000000" // QR nyeusi
-            />
-          </div>
+  <div className="qr-wrapper">
+    <div className="qr-box">
+      <QRCode
+        value={`https://wedding.nardio.online/invite/${uuid}`}
+        size={85}
+        level="L"
+        bgColor="#ffffff"
+        fgColor="#000000"
+      />
+    </div>
+    <p className="guest-type">{guestType}</p>
+  </div>
+</div>
 
-          <p className="guest-type">{guestType}</p>
-        </div>
       )}
     </div>
   );

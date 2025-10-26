@@ -263,15 +263,16 @@ a:hover {
 
 
 /* Overlay content (kona ya chini kulia) */
+/* Overlay content (kona ya chini kulia) */
 .overlay-content {
   position: absolute;
   bottom: 20px;
-  right: 22px;
+  right: 35px; /* imeongezwa kidogo kusogeza kulia */
   color: #fff;
   display: flex;
-  flex-direction: row; /* mpangilio wa mlalo */
-  align-items: center; /* weka vitu katikati */
-  gap: 15px; /* nafasi kati ya jina na QR */
+  flex-direction: row;
+  align-items: flex-end; /* ili qr na jina vi-align vizuri */
+  gap: 15px;
   text-align: right;
 }
 
@@ -287,28 +288,41 @@ a:hover {
   text-align: right;
 }
 
+/* QR + Type container */
+.qr-wrapper {
+  display: flex;
+  flex-direction: column; /* type iwe chini ya QR */
+  align-items: center;
+}
+
 /* QR box */
 .qr-box {
   background: #fff;
   padding: 6px;
   border-radius: 5px;
   box-shadow: 0 6px 25px rgba(0, 0, 0, 0.25);
-  display: inline-block;
+}
+
+/* Guest type chini ya QR */
+.guest-type {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.9em;
+  margin-top: 5px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+   font-family: 'Pacifico', cursive;
 }
 
 
-
-
-
-
 /* Guest type */
-.guest-type {
+/* .guest-type {
   font-family: 'Pacifico', cursive;
   color: rgb(255, 255, 255);
   font-size: 0.9rem;
   font-weight: 100;
   text-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
-}
+} */
 
 .loading,
 .error {
