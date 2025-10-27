@@ -7,12 +7,15 @@ import Word from "./Component/Word";
 import InvitationCard from "./Component/InvitationCard";
 import MapSection from "./Component/MapSection";
 import RSVPSection from "./Component/RSVPSection";
+import VerifyGuest from "./Component/VerifyGuest";
+
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         {/* Personalized invite link for each guest */}
+        <Route path="/verify" element={<VerifyGuest />} />
         <Route
           path="/invite/:uuid"
           element={
