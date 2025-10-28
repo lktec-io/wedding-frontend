@@ -18,14 +18,14 @@ export default function VerifyGuest() {
     setResult(null);
 
     try {
-      const res = await fetch("https://wedding.nardio.online/api/verify", {
+      const res = await fetch("/api/verify", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ code: enteredCode }),
       });
 
       const data = await res.json();
-       console.log("✅ Response:", data); // <-- ongeza hii uone response
+      console.log("✅ Response:", data); // <-- ongeza hii uone response
       setLoading(false);
 
       if (res.status === 200) {
