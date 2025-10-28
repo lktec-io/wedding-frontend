@@ -25,7 +25,7 @@ export default function VerifyGuest() {
       });
 
       const data = await res.json();
-      console.log("✅ Response:", data); // <-- ongeza hii uone response
+      console.log("✅ Response:", data); // - ongeza hii uone response
       setLoading(false);
 
       if (res.status === 200) {
