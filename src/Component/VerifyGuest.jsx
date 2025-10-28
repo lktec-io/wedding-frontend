@@ -11,20 +11,21 @@ export default function VerifyGuest() {
   const scannerRef = useRef(null);
 
   const handleVerify = async (guestCode) => {
-  const enteredCode = guestCode || code.trim().toUpperCase();
-  if (!enteredCode) return alert("Tafadhali weka au scan code ya mgeni");
+    const enteredCode = guestCode || code.trim().toUpperCase();
+    if (!enteredCode) return alert("Tafadhali weka au scan code ya mgeni");
 
     setLoading(true);
     setResult(null);
 
     try {
-     const res = await fetch("https://wedding.nardio.online/api/verify", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ code: enteredCode }),
-  });
+      const res = await fetch("https://wedding.nardio.online/api/verify", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ code: enteredCode }),
+      });
 
       const data = await res.json();
+       console.log("✅ Response:", data); // <-- ongeza hii uone response
       setLoading(false);
 
       if (res.status === 200) {
@@ -120,8 +121,14 @@ export default function VerifyGuest() {
           </>
         ) : (
           <div className="scanner-box">
-            <video ref={videoRef} style={{ width: "100%", borderRadius: "10px" }} />
-            <button className="switch-btn cancel" onClick={() => setScanMode(false)}>
+            <video
+              ref={videoRef}
+              style={{ width: "100%", borderRadius: "10px" }}
+            />
+            <button
+              className="switch-btn cancel"
+              onClick={() => setScanMode(false)}
+            >
               ❌ Funga Scanner
             </button>
           </div>
