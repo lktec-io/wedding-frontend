@@ -188,51 +188,9 @@ a:hover {
 
 
 
-/* .invite-card {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0;
-  margin: 0;
-} */
-
-/* 
-.card-wrapper {
-  position: relative;
-  width: 100%; */
-  /* max-width: 720px; */
-  /* height: auto; */
-  /* aspect-ratio: 4/ 4; unaweza kurekebisha kama unataka uwiano tofauti */
-  /* overflow: hidden;
-  border-radius: 10px 10px 0px 0px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-} */
-
-/* Hii sasa inafanya image ijae full */
-/* .card-image {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  display: block;
-  padding: 0;
-  margin: 0;
-} */
 
 
-/* 
-.invite {
-  text-align: center;
-}
 
-.invite img {
-  max-width: 100%;
-  height: auto;
-  object-fit: cover;
-  display: block;
-  margin: 0 auto 1rem auto;
-  border-radius: 10px 10px 0px 0px;
-  padding: 0;
-} */
 
 
 .invite {
@@ -250,20 +208,6 @@ a:hover {
 }
 
 /* Overlay content (kona ya chini kulia) */
-/* .overlay-content {
-  position: absolute;
-  bottom: 20px;
-  right: 22px;
-  color: #fff;
-  text-align: right;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-} */
-
-
-/* Overlay content (kona ya chini kulia) */
-/* Overlay content (kona ya chini kulia) */
 .overlay-content {
   position: absolute;
   bottom: 20px;
@@ -278,15 +222,15 @@ a:hover {
 
 .guest-name {
   color: rgba(255, 255, 255, 0.9);
-  font-size: 1.5em;
-  font-weight: 600;
+  font-size: 1.3em;
+  font-weight: 500;
   font-family: "Inter", sans-serif;
   letter-spacing: 1px;
   line-height: 1.3;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
   text-align: right;
   margin-bottom: 0; /* Ondoa space kubwa chini */
-  margin-top: 10px; /* Ongeza space kidogo juu ya name ili ipande juu */
+  margin-top: 0px; /* Ongeza space kidogo juu ya name ili ipande juu */
 }
 
 /* QR + Type container */
@@ -315,14 +259,7 @@ a:hover {
    font-family: 'Pacifico', cursive;
 }
 
-/* Guest type */
-/* .guest-type {
-  font-family: 'Pacifico', cursive;
-  color: rgb(255, 255, 255);
-  font-size: 0.9rem;
-  font-weight: 100;
-  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
-} */
+
 
 .loading,
 .error {
@@ -346,12 +283,7 @@ h4 {
 p {
   line-height: 1.6;
 }
-/* .confirm {
-  font-size: 1.5em;
- font-family: "Inter", sans-serif;
-  line-height: 1.6;
-  font-weight: 500;
-} */
+
 .guest {
   font-size: 1.6em;
   font-family: "Inter", sans-serif;
@@ -479,48 +411,3 @@ p {
   margin-bottom: 1rem;
   letter-spacing: 1px;
 }
-
-
-
-
-
-
-/* .invite-card {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.card-wrapper {
-  position: relative;
-  width: 350px;
-  max-width: 90%;
-  margin-top: 70px;
-  align-items: center;
-  margin-left: 20px;
-} */
-
-/* .card-image {
-  width: 100%;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-} */
-/* 
-.overlay {
-  position: absolute;
-  bottom: 15%;
-  width: 100%;
-  text-align: center;
-  color: #3b2f2f;
-}
-
-.guest-name {
-  font-size: 1.1rem;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.qr {
-  margin: 0 auto;
-} */

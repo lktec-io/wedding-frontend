@@ -45,6 +45,8 @@
 .yes-btn:hover,
 .no-btn:hover {
   transform: scale(1.05);
+  background-color:  rgb(231, 76, 60);
+
 }
 
 /* 🌸 Petal Animation */
