@@ -96,7 +96,7 @@ body{
 .retry-btn:hover,
 .send-btn:hover {
   transform: scale(1.05);
-  background-color:  rgb(231, 76, 60);
+  background-color: #df3d07;
 }
 
 .button-row {
