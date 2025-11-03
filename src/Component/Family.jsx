@@ -7,9 +7,9 @@ export default function Family() {
 
   useEffect(() => {
     fetch(`https://wedding.nardio.online/api/guest/${uuid}`)
-      .then(res => res.json())
-      .then(data => setGuest(data))
-      .catch(err => console.error(err));
+      .then((res) => res.json())
+      .then((data) => setGuest(data))
+      .catch((err) => console.error(err));
   }, [uuid]);
   if (!guest) return <p>Inapakia taarifa zako...</p>;
 
@@ -18,7 +18,9 @@ export default function Family() {
       <h4>
         Familia ya Mr & Mrs Hagai Mwakalindile wanayo furaha kubwa kukualika:
       </h4>
-      <p className="guest">{guest.name.toUpperCase()}</p>
+      <p className="guest">
+        {guest ? guest.name.toUpperCase() : "Guest not found"}
+      </p>
     </div>
   );
 }
