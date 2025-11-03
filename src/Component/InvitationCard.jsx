@@ -29,7 +29,7 @@ export default function InvitationCard() {
   }, [uuid]);
 
   if (loading) return <p className="loading">⏳ Inapakia taarifa zako...</p>;
-  if (error) return <p className="error">❌ {error}</p>;
+  if (error) return <p className="error">❌ Guest not found.{error}</p>;
 
   // Safely split the name (avoid breaking if null or empty)
   const splitName =
