@@ -54,7 +54,7 @@ export default function InvitationCard() {
         <br />
         {lastName}
       </>
-    )}
+    )  || "Guest Not Found" }
   </p>
 
   <div className="qr-wrapper">
