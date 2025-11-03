@@ -33,7 +33,7 @@ export default function VerifyGuest() {
           success: true,
           status: "new",
           guest: data.guest,
-          message: "✅ Mgeni amethibitishwa na ame-check-in!",
+          message: "✅ Mgeni amethibitishwa kikamilifu check-in!",
         });
       } else if (res.status === 409) {
         setResult({
@@ -154,9 +154,9 @@ export default function VerifyGuest() {
               <p>
                 <strong>Aina:</strong> {result.guest.type}
               </p>
-              <p>
+              {/* <p>
                 <strong>Simu:</strong> {result.guest.phone || "—"}
-              </p>
+              </p> */}
             </div>
           )}
         </div>
