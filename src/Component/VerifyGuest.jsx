@@ -150,11 +150,10 @@ export default function VerifyGuest() {
             <div className="guest-info">
               <p>
                 <strong>Jina:</strong> {result.guest.name}
+              </p>
+              <p>
                 <strong>Aina:</strong> {result.guest.type}
               </p>
-              {/* <p>
-                <strong>Aina:</strong> {result.guest.type}
-              </p> */}
               {/* <p>
                 <strong>Simu:</strong> {result.guest.phone || "—"}
               </p> */}
