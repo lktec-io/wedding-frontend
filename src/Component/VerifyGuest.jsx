@@ -57,79 +57,37 @@ export default function VerifyGuest() {
   };
 
   // ✅ Start/Stop Scanner
-useEffect(() => {
-  if (scanMode && videoRef.current) {
-    let scanner;
-
-    const setupScanner = async () => {
-      try {
-        const constraints = {
-          video: {
-            facingMode: { exact: "environment" },
-            width: { ideal: 1280 },
-            height: { ideal: 720 },
-            focusMode: "continuous",
-            frameRate: { ideal: 30 },
-          },
-        };
-
-        const stream = await navigator.mediaDevices.getUserMedia(constraints);
-        const videoTrack = stream.getVideoTracks()[0];
-
-        // ✅ Force continuous focus (Android Chrome special trick)
-        const capabilities = videoTrack.getCapabilities();
-        if (capabilities.focusMode) {
-          await videoTrack.applyConstraints({
-            advanced: [{ focusMode: "continuous" }],
-          });
-        }
-
-        videoRef.current.srcObject = stream;
-
-        scanner = new QrScanner(
-          videoRef.current,
-          (result) => {
-            if (result?.data) {
-              const text = result.data.trim();
+  useEffect(() => {
+    if (scanMode && videoRef.current) {
+      const scanner = new QrScanner(
+        videoRef.current,
+        (result) => {
+          if (result?.data) {
+            const text = result.data.trim();
+            try {
+              // Ikiwa QR ni link kamili — peleka moja kwa moja kwenye invite page
+              const url = new URL(text);
+              const uuid = url.pathname.split("/").pop();
+              window.location.href = `https://wedding.nardio.online/invite/${uuid}`;
+            } catch {
+              // Ikiwa ni code tu — verify locally
               handleVerify(text);
-              setScanMode(false);
-              scanner.stop();
-              stream.getTracks().forEach((t) => t.stop());
             }
-          },
-          {
-            preferredCamera: "environment",
-            maxScansPerSecond: 25, // 🔥 scan haraka zaidi
-            returnDetailedScanResult: false,
-            highlightScanRegion: false,
-            highlightCodeOutline: true,
+            setScanMode(false);
+            scanner.stop();
           }
-        );
+        },
+        { returnDetailedScanResult: true }
+      );
+      scannerRef.current = scanner;
+      scanner.start();
 
-        scannerRef.current = scanner;
-        await scanner.start();
-      } catch (error) {
-        console.error("Camera setup error:", error);
-        alert("Kuna tatizo na kamera. Ruhusu upatikanaji wa kamera kwenye browser.");
-      }
-    };
-
-    setupScanner();
-
-    return () => {
-      if (scannerRef.current) {
-        scannerRef.current.stop();
-        scannerRef.current.destroy();
-      }
-      const stream = videoRef.current?.srcObject;
-      if (stream) {
-        stream.getTracks().forEach((track) => track.stop());
-      }
-    };
-  }
-}, [scanMode]);
-
-
+      return () => {
+        scanner.stop();
+        scanner.destroy();
+      };
+    }
+  }, [scanMode]);
 
   return (
     <div className="verify-container">

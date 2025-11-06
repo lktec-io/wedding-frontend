@@ -106,41 +106,29 @@ button:hover {
 
 /* ✅ Scanner box improved */
 .scanner-box {
-  width: 100%;
-  max-width: 420px;
-  height: 350px;
-  border: 2px solid rgba(0, 255, 100, 0.3);
-  border-radius: 16px;
+  width: 330px;
+  height: 330px;
+  border-radius: 12px;
   overflow: hidden;
-  position: relative;
-  background: black;
-  margin-top: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  background: rgba(0, 0, 0, 0.6);
+  transform: translateY(-50px); /* ⬆️ PANDISHA juu zaidi */
+  transition: transform 0.3s ease-in-out;
+  margin-bottom: 0;
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+/* ✅ Video camera styling — clear & sharp */
 .scanner-box video {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* ✅ full coverage without stretch */
-  transform: scaleX(1); /* usigeuze unless ni camera ya mbele */
-  border-radius: 16px;
+  object-fit: cover; /* inafanya camera ifit vizuri */
+  border-radius: 12px;
+  filter: brightness(1.1) contrast(1.1);
 }
-
-.scanner-box::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: rgba(0, 255, 0, 0.7);
-  animation: scanline 2s linear infinite;
-}
-
-@keyframes scanline {
-  0% { top: 0; }
-  100% { top: 100%; }
-}
-
 
 /* Small fade animation */
 @keyframes fadeIn {
