@@ -57,90 +57,37 @@ export default function VerifyGuest() {
   };
 
   // ✅ Start/Stop Scanner
- useEffect(() => {
-  if (scanMode && videoRef.current) {
-    let scanner;
-    let stream;
-
-    const setupScanner = async () => {
-      try {
-        // ✅ Request high-quality camera feed
-        stream = await navigator.mediaDevices.getUserMedia({
-          video: {
-            facingMode: { exact: "environment" }, // kamera ya nyuma
-            width: { ideal: 1920 },
-            height: { ideal: 1080 },
-            frameRate: { ideal: 30 },
-            focusMode: "continuous",
-            advanced: [{ torch: false, focusMode: "continuous" }],
-          },
-          audio: false,
-        });
-
-        const videoTrack = stream.getVideoTracks()[0];
-
-        // ✅ Force continuous focus (works on most Android phones)
-        const capabilities = videoTrack.getCapabilities();
-        if (capabilities.focusMode) {
-          await videoTrack.applyConstraints({
-            advanced: [{ focusMode: "continuous" }],
-          });
-        }
-
-        // ✅ Assign live stream manually
-        videoRef.current.srcObject = stream;
-        await videoRef.current.play();
-
-        // ✅ Initialize high-performance QR scanner
-        scanner = new QrScanner(
-          videoRef.current,
-          (result) => {
-            if (result?.data) {
-              const text = result.data.trim();
-              try {
-                const url = new URL(text);
-                const uuid = url.pathname.split("/").pop();
-                window.location.href = `https://wedding.nardio.online/invite/${uuid}`;
-              } catch {
-                handleVerify(text);
-              }
-              setScanMode(false);
-              scanner.stop();
-              stream.getTracks().forEach((track) => track.stop());
+  useEffect(() => {
+    if (scanMode && videoRef.current) {
+      const scanner = new QrScanner(
+        videoRef.current,
+        (result) => {
+          if (result?.data) {
+            const text = result.data.trim();
+            try {
+              // Ikiwa QR ni link kamili — peleka moja kwa moja kwenye invite page
+              const url = new URL(text);
+              const uuid = url.pathname.split("/").pop();
+              window.location.href = `https://wedding.nardio.online/invite/${uuid}`;
+            } catch {
+              // Ikiwa ni code tu — verify locally
+              handleVerify(text);
             }
-          },
-          {
-            returnDetailedScanResult: false,
-            maxScansPerSecond: 25, // ⚡ high scan rate
-            highlightScanRegion: false,
-            highlightCodeOutline: true,
+            setScanMode(false);
+            scanner.stop();
           }
-        );
+        },
+        { returnDetailedScanResult: true }
+      );
+      scannerRef.current = scanner;
+      scanner.start();
 
-        scannerRef.current = scanner;
-        await scanner.start();
-      } catch (err) {
-        console.error("Camera setup error:", err);
-        alert(
-          "Kuna tatizo na kamera. Hakikisha ruhusa za kamera zimewezeshwa, au tumia Chrome browser."
-        );
-      }
-    };
-
-    setupScanner();
-
-    return () => {
-      if (scannerRef.current) {
-        scannerRef.current.stop();
-        scannerRef.current.destroy();
-      }
-      if (stream) {
-        stream.getTracks().forEach((track) => track.stop());
-      }
-    };
-  }
-}, [scanMode]);
-
+      return () => {
+        scanner.stop();
+        scanner.destroy();
+      };
+    }
+  }, [scanMode]);
 
   return (
     <div className="verify-container">
