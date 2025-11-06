@@ -57,44 +57,84 @@ export default function VerifyGuest() {
   };
 
   // ✅ Start/Stop Scanner
-  useEffect(() => {
-    if (scanMode && videoRef.current) {
-      const scanner = new QrScanner(
-        videoRef.current,
-        (result) => {
-          if (result?.data) {
-            const text = result.data.trim();
+ useEffect(() => {
+  if (scanMode && videoRef.current) {
+    let scanner;
 
-            try {
-              const url = new URL(text);
-              const uuid = url.pathname.split("/").pop();
-              window.location.href = `https://wedding.nardio.online/invite/${uuid}`;
-            } catch {
-              handleVerify(text);
-            }
-
-            setScanMode(false);
-            scanner.stop();
-          }
-        },
-        {
-          returnDetailedScanResult: true,
-          preferredCamera: "environment", // ✅ prioritize back camera
-          highlightScanRegion: true, // ✅ show highlighted scan box
-          highlightCodeOutline: true, // ✅ draw QR border for accuracy
-          maxScansPerSecond: 12, // ✅ smoother scanning
+    const setupScanner = async () => {
+      try {
+        // ✅ Check kama camera inapatikana
+        const hasCamera = await QrScanner.hasCamera();
+        if (!hasCamera) {
+          alert("Kamera haipatikani kwenye kifaa hiki.");
+          return;
         }
-      );
 
-      scannerRef.current = scanner;
-      scanner.start();
+        // ✅ Force high quality camera feed
+        const constraints = {
+          video: {
+            facingMode: { ideal: "environment" }, // kamera ya nyuma
+            width: { ideal: 1920 },
+            height: { ideal: 1080 },
+            focusMode: "continuous",
+          },
+          audio: false,
+        };
 
-      return () => {
-        scanner.stop();
-        scanner.destroy();
-      };
-    }
-  }, [scanMode]);
+        // ✅ Start camera stream manually
+        const stream = await navigator.mediaDevices.getUserMedia(constraints);
+        videoRef.current.srcObject = stream;
+
+        // ✅ Initialize QrScanner na feed ya HD
+        scanner = new QrScanner(
+          videoRef.current,
+          (result) => {
+            if (result?.data) {
+              const text = result.data.trim();
+              try {
+                const url = new URL(text);
+                const uuid = url.pathname.split("/").pop();
+                window.location.href = `https://wedding.nardio.online/invite/${uuid}`;
+              } catch {
+                handleVerify(text);
+              }
+              setScanMode(false);
+              scanner.stop();
+              stream.getTracks().forEach((track) => track.stop());
+            }
+          },
+          {
+            returnDetailedScanResult: true,
+            maxScansPerSecond: 15, // ✅ higher frequency for fast scan
+            highlightScanRegion: true,
+            highlightCodeOutline: true,
+          }
+        );
+
+        scannerRef.current = scanner;
+        await scanner.start();
+      } catch (error) {
+        console.error("Camera setup error:", error);
+        alert("Kuna tatizo na kamera. Hakikisha ruhusa zimewezeshwa.");
+      }
+    };
+
+    setupScanner();
+
+    // ✅ Clean up
+    return () => {
+      if (scannerRef.current) {
+        scannerRef.current.stop();
+        scannerRef.current.destroy();
+      }
+      const stream = videoRef.current?.srcObject;
+      if (stream) {
+        stream.getTracks().forEach((track) => track.stop());
+      }
+    };
+  }
+}, [scanMode]);
+
 
   return (
     <div className="verify-container">
