@@ -57,56 +57,51 @@ export default function VerifyGuest() {
   };
 
   // ✅ Start/Stop Scanner
- useEffect(() => {
+useEffect(() => {
   if (scanMode && videoRef.current) {
     let scanner;
 
     const setupScanner = async () => {
       try {
-        // ✅ Check kama camera inapatikana
-        const hasCamera = await QrScanner.hasCamera();
-        if (!hasCamera) {
-          alert("Kamera haipatikani kwenye kifaa hiki.");
-          return;
-        }
-
-        // ✅ Force high quality camera feed
         const constraints = {
           video: {
-            facingMode: { ideal: "environment" }, // kamera ya nyuma
-            width: { ideal: 1920 },
-            height: { ideal: 1080 },
+            facingMode: { exact: "environment" },
+            width: { ideal: 1280 },
+            height: { ideal: 720 },
             focusMode: "continuous",
+            frameRate: { ideal: 30 },
           },
-          audio: false,
         };
 
-        // ✅ Start camera stream manually
         const stream = await navigator.mediaDevices.getUserMedia(constraints);
+        const videoTrack = stream.getVideoTracks()[0];
+
+        // ✅ Force continuous focus (Android Chrome special trick)
+        const capabilities = videoTrack.getCapabilities();
+        if (capabilities.focusMode) {
+          await videoTrack.applyConstraints({
+            advanced: [{ focusMode: "continuous" }],
+          });
+        }
+
         videoRef.current.srcObject = stream;
 
-        // ✅ Initialize QrScanner na feed ya HD
         scanner = new QrScanner(
           videoRef.current,
           (result) => {
             if (result?.data) {
               const text = result.data.trim();
-              try {
-                const url = new URL(text);
-                const uuid = url.pathname.split("/").pop();
-                window.location.href = `https://wedding.nardio.online/invite/${uuid}`;
-              } catch {
-                handleVerify(text);
-              }
+              handleVerify(text);
               setScanMode(false);
               scanner.stop();
-              stream.getTracks().forEach((track) => track.stop());
+              stream.getTracks().forEach((t) => t.stop());
             }
           },
           {
-            returnDetailedScanResult: true,
-            maxScansPerSecond: 15, // ✅ higher frequency for fast scan
-            highlightScanRegion: true,
+            preferredCamera: "environment",
+            maxScansPerSecond: 25, // 🔥 scan haraka zaidi
+            returnDetailedScanResult: false,
+            highlightScanRegion: false,
             highlightCodeOutline: true,
           }
         );
@@ -115,13 +110,12 @@ export default function VerifyGuest() {
         await scanner.start();
       } catch (error) {
         console.error("Camera setup error:", error);
-        alert("Kuna tatizo na kamera. Hakikisha ruhusa zimewezeshwa.");
+        alert("Kuna tatizo na kamera. Ruhusu upatikanaji wa kamera kwenye browser.");
       }
     };
 
     setupScanner();
 
-    // ✅ Clean up
     return () => {
       if (scannerRef.current) {
         scannerRef.current.stop();
@@ -134,6 +128,7 @@ export default function VerifyGuest() {
     };
   }
 }, [scanMode]);
+
 
 
   return (
