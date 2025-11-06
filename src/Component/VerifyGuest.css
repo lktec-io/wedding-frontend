@@ -128,7 +128,10 @@ button:hover {
   object-fit: cover; /* inafanya camera ifit vizuri */
   border-radius: 12px;
   filter: brightness(1.1) contrast(1.1);
+  transform: scale(1.02); /* kidogo kuzoom kusaidia focus */
 }
+
+
 
 /* Small fade animation */
 @keyframes fadeIn {
