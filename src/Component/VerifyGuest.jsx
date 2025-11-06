@@ -64,21 +64,28 @@ export default function VerifyGuest() {
         (result) => {
           if (result?.data) {
             const text = result.data.trim();
+
             try {
-              // Ikiwa QR ni link kamili — peleka moja kwa moja kwenye invite page
               const url = new URL(text);
               const uuid = url.pathname.split("/").pop();
               window.location.href = `https://wedding.nardio.online/invite/${uuid}`;
             } catch {
-              // Ikiwa ni code tu — verify locally
               handleVerify(text);
             }
+
             setScanMode(false);
             scanner.stop();
           }
         },
-        { returnDetailedScanResult: true }
+        {
+          returnDetailedScanResult: true,
+          preferredCamera: "environment", // ✅ prioritize back camera
+          highlightScanRegion: true, // ✅ show highlighted scan box
+          highlightCodeOutline: true, // ✅ draw QR border for accuracy
+          maxScansPerSecond: 12, // ✅ smoother scanning
+        }
       );
+
       scannerRef.current = scanner;
       scanner.start();
 
