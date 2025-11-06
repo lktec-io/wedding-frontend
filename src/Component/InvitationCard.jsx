@@ -30,21 +30,17 @@ export default function InvitationCard() {
 
   if (loading) return <p className="loading">⏳ Inapakia taarifa zako...</p>;
   if (error) return <p className="error">❌{error}</p>;
-
   // Safely split the name (avoid breaking if null or empty)
   const splitName =
     typeof guest?.name === "string" && guest.name.trim().length > 0
       ? guest.name.split(" ")
       : [];
-
   const firstName = splitName[0]?.toUpperCase() || "";
   const lastName = splitName[1]?.toUpperCase() || "";
   const guestType = guest?.type ? guest.type.toUpperCase() : "";
-
   return (
     <div className="invite invite-card">
       <img src={inviteTemplate} alt="Wedding Invitation" />
-
       {guest && (
       <div className="overlay-content">
   <p className="guest-name">

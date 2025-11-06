@@ -3,13 +3,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  background:linear-gradient(to right, rgba(40, 5, 5, 0.801),  rgba(50, 5, 5, 0.872)), url('/mama.jpg') center/cover no-repeat ;
+  justify-content: flex-start; /* ⬆️ PANDISHA juu badala ya center */
+  background: linear-gradient(to right, rgba(40, 5, 5, 0.801), rgba(50, 5, 5, 0.872)),
+    url("/mama.jpg") center/cover no-repeat;
   backdrop-filter: blur(10px);
   text-align: center;
-  padding: 0px;
+  padding: 40px 20px; /* imeongezwa padding ya juu */
   margin: 0 auto;
 }
+
 .verify-container h2 {
   color: #fff;
   font-size: 2rem;
@@ -18,7 +20,7 @@
 
 .verify-container p {
   color: #ddd;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 }
 
 .verify-options {
@@ -91,31 +93,60 @@ button:hover {
   background-color: rgba(255, 0, 0, 0.6);
 }
 
+.verify-result.checked {
+  background-color: rgba(255, 165, 0, 0.7);
+}
+
 .guest-info {
   margin-top: 10px;
   background: rgba(255, 255, 255, 0.15);
-  padding: 0px;
+  padding: 5px;
   border-radius: 8px;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
+/* ✅ Scanner box improved */
 .scanner-box {
-  width: 300px;
-  height: 300px;
+  width: 330px;
+  height: 330px;
   border-radius: 12px;
   overflow: hidden;
   border: 2px solid rgba(255, 255, 255, 0.3);
-  transform: translateY(-30px); /* ⬆️ Inasukuma juu kidogo */
-  transition: transform 0.3s ease-in-out; /* laini inapofunguka */
+  background: rgba(0, 0, 0, 0.6);
+  transform: translateY(-50px); /* ⬆️ PANDISHA juu zaidi */
+  transition: transform 0.3s ease-in-out;
   margin-bottom: 0;
-  margin-top: 10px;
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.verify-result.checked {
-  background-color: rgba(255, 165, 0, 0.7); /* orange for already checked-in */
+/* ✅ Video camera styling — clear & sharp */
+.scanner-box video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* inafanya camera ifit vizuri */
+  border-radius: 12px;
+  filter: brightness(1.1) contrast(1.1);
 }
 
+/* Small fade animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ✅ Optional: improve camera look on phones */
+@media (max-width: 480px) {
+  .scanner-box {
+    width: 90vw;
+    height: 90vw;
+    transform: translateY(-40px);
+  }
+}
