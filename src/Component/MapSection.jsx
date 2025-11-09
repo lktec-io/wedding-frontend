@@ -23,7 +23,7 @@ export default function MapSection() {
 
       <iframe
         title="Event Location"
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5086.199902635288!2d33.4520246760696!3d-8.90962579145006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19009faea1e218c3%3A0xbf9cfeea132cd456!2sRoyal%20Tughimbe%20hotel!5e1!3m2!1sen!2stz!4v1761076809133!5m2!1sen!2stz&gestureHandling=greedy"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5086.419495877746!2d33.441764176069405!3d-8.893832491236461!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19009f0000a3904b%3A0x9fd514ade2dab9e2!2sCity%20park%20garden%20Mbeya!5e1!3m2!1sen!2stz!4v1762712102707!5m2!1sen!2stz"
         className="map-frame"
         allowFullScreen=""
         loading="lazy"
