@@ -243,7 +243,7 @@ a:hover {
 /* QR box */
 .qr-box {
   background: #fff;
-  padding: 6px;
+  padding: 5px;
   border-radius: 5px;
   box-shadow: 0 6px 25px rgba(0, 0, 0, 0.25);
 }
@@ -251,7 +251,7 @@ a:hover {
 /* Guest type chini ya QR */
 .guest-type {
   color: rgba(255, 255, 255, 0.9);
-  font-size: 0.9em;
+  font-size: 0.8em;
   margin-top: 5px;
   text-transform: uppercase;
   letter-spacing: 1px;
