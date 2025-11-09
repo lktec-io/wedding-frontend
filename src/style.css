@@ -210,7 +210,7 @@ a:hover {
 /* Overlay content (kona ya chini kulia) */
 .overlay-content {
   position: absolute;
-  bottom: 10px;
+  bottom: 35px;
   right: 35px;
   color: #fff;
   display: flex;
