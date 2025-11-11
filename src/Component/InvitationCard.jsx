@@ -43,7 +43,7 @@ export default function InvitationCard() {
       <img src={inviteTemplate} alt="Wedding Invitation" />
       {guest && (
       <div className="overlay-content">
-  <p className="guest-name">
+  {/* <p className="guest-name">
     {firstName}
     {lastName && (
       <>
@@ -51,7 +51,11 @@ export default function InvitationCard() {
         {lastName}
       </>
     ) }
-  </p>
+  </p> */}
+
+  <p className="guest-name">
+  {guest && guest.name ? guest.name : "Guest not found"}
+</p>
 
   <div className="qr-wrapper">
     <div className="qr-box">
