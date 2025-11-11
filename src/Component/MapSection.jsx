@@ -18,7 +18,7 @@ export default function MapSection() {
             ></path>
           </svg>{" "}
         </p>
-        <h3>Eneo La Tukio</h3>
+        <h3>Eneo La Tukio 📍</h3>
       </div>
       <iframe
         title="Event Location"
