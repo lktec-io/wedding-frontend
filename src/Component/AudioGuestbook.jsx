@@ -91,7 +91,7 @@ export default function AudioGuestbook({ guest = "Donewell & Angella" }) {
             <button className="retry-btn" onClick={startRecording}>
               <FaRedo /> Rekodi Tena
             </button>
-            <button className="send-btn" onClick={sendMessage}>
+            <button className="send-btn" onClick={sendMessage} >
               <FaPaperPlane /> Tuma Ujumbe
             </button>
           </div>
