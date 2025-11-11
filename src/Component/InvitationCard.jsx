@@ -54,7 +54,7 @@ export default function InvitationCard() {
   </p> */}
 
   <p className="guest-name">
-  {guest && guest.name ? guest.name.toUpperCase() : "Guest not found"}
+  {guest && guest.name ? guest.name : "Guest not found"}
 </p>
 
   <div className="qr-wrapper">
