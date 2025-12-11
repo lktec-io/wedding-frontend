@@ -27,7 +27,7 @@ export default function CountdownOnly() {
   }, []);
   return (
     <section className="countdown-section">
-      <h2 className="countdown-title"> 💞 Muda uliosalia kufikia tukio </h2>
+      <h2 className="countdown-title">  Muda uliosalia kufikia tukio </h2>
 
       <div className="countdown">
         <div>

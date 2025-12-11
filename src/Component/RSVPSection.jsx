@@ -51,7 +51,7 @@ export default function RSVPSection() {
   return (
     <div className="rsvp">
       <Scrollup />
-      <Floating />
+      {/* <Floating /> */}
       <h2>Utajumuika Nasi?</h2>
 
       <div className="rsvp-buttons">
@@ -73,12 +73,13 @@ export default function RSVPSection() {
             {response === "yes" ? (
               <>
                 <h3>✅ Asante!</h3>
-                <p>Ujumbe wako umepokelewa. Tunakutarajia kwa furaha kubwa 💐</p>
+                <p>Ujumbe wako umepokelewa
+                  karibu sana 💐</p>
               </>
             ) : (
               <>
                 <h3>😔 Pole!</h3>
-                <p>Tutakukosa, lakini tunakutakia heri nyingi ❤️</p>
+                <p>Tutakukosa, lakini tunakutakia heri nyingi</p>
               </>
             )}
             <button onClick={closePopup}>Funga</button>
