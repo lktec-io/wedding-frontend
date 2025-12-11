@@ -78,7 +78,7 @@ export default function RSVPSection() {
             ) : (
               <>
                 <h3>😔 Pole!</h3>
-                <p>Tutakukosa siku hiyo, lakini tunakutakia heri nyingi ❤️</p>
+                <p>Tutakukosa, lakini tunakutakia heri nyingi ❤️</p>
               </>
             )}
             <button onClick={closePopup}>Funga</button>

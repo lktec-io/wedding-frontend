@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 
 export default function CountdownOnly() {
   useEffect(() => {
-    const targetDate = new Date("2025-12-12T00:00:00").getTime();
+    const targetDate = new Date("2025-12-13T00:00:00").getTime();
     const timer = setInterval(() => {
       const now = new Date().getTime();
       const distance = targetDate - now;
@@ -27,7 +27,7 @@ export default function CountdownOnly() {
   }, []);
   return (
     <section className="countdown-section">
-      <h2 className="countdown-title"> 💞 Muda uliosalia kufika siku ya furaha yetu </h2>
+      <h2 className="countdown-title"> 💞 Muda uliosalia kufikia tukio </h2>
 
       <div className="countdown">
         <div>
