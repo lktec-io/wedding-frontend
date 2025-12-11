@@ -23,7 +23,7 @@ function App() {
               <div className="content-box">
                 <InvitationCard />
                 <Family />
-                <Word />
+                {/* <Word /> */}
                 <CountdownOnly />
                 <RSVPSection />
                 <AudioGuestbook />
@@ -47,7 +47,6 @@ function App() {
             </div>
           }
         />
-
         {/* Handle unknown routes */}
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>

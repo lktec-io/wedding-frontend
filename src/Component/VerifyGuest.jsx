@@ -68,7 +68,7 @@ export default function VerifyGuest() {
               // Ikiwa QR ni link kamili — peleka moja kwa moja kwenye invite page
               const url = new URL(text);
               const uuid = url.pathname.split("/").pop();
-              window.location.href = `https://wedding.nardio.online/invite/${uuid}`;
+              window.location.href = `https://graduation.nardio.online/invite/${uuid}`;
             } catch {
               // Ikiwa ni code tu — verify locally
               handleVerify(text);

@@ -6,7 +6,7 @@ export default function Family() {
   const [guest, setGuest] = useState(null);
 
   useEffect(() => {
-    fetch(`https://wedding.nardio.online/api/guest/${uuid}`)
+    fetch(`https://graduation.nardio.online/api/guest/${uuid}`)
       .then((res) => res.json())
       .then((data) => setGuest(data))
       .catch((err) => console.error(err));
