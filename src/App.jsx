@@ -27,7 +27,7 @@ function App() {
                 <CountdownOnly />
                 <RSVPSection />
                 <AudioGuestbook />
-                <MapSection />
+                {/* <MapSection /> */}
                 <DownloadCardButton />
               </div>
             </div>
