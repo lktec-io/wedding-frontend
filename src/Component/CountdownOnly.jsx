@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 
 export default function CountdownOnly() {
   useEffect(() => {
-    const targetDate = new Date("2025-12-13T00:00:00").getTime();
+    const targetDate = new Date("2025-12-12T50:20:00").getTime();
     const timer = setInterval(() => {
       const now = new Date().getTime();
       const distance = targetDate - now;
