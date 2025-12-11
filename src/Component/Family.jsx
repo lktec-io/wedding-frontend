@@ -17,7 +17,7 @@ export default function Family() {
     <div className="familia">
       <h4>
         {/* Familia ya Mr & Mrs Hagai Mwakalindile wanayo furaha kubwa kukualika: */}
-        Tunayofuraha kubwa sana kukukaribisha
+      Nitakie pongezi kwenye siku yangu hii muhimu
       </h4>
       <p className="guest">
         {guest ? guest.name.toUpperCase() : "Guest not found"}
