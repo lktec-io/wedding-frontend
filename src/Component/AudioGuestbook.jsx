@@ -78,7 +78,7 @@ export default function AudioGuestbook({ guest = "Mhitimu wetu" }) {
       {recording && (
         <>
           <p className="recording">⏺️ Inarekodi... zimebaki sekunde {countdown}</p>
-          <button className="stop-btn" onClick={stopRecording}>🛑 Sitisha Kurekodi</button>
+          <button className="stop-btn" onClick={stopRecording}>⚪ Sitisha Kurekodi</button>
         </>
       )}
 

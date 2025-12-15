@@ -13,7 +13,7 @@ export default function InvitationCard() {
     const fetchGuest = async () => {
       try {
         const res = await fetch(
-          `https://graduation.nardio.online/api/guest/${uuid}`
+          `https://wedding.nardio.online/api/guest/${uuid}`
         );
         if (!res.ok) throw new Error("Guest not found");
         const data = await res.json();
@@ -58,7 +58,7 @@ export default function InvitationCard() {
   <div className="qr-wrapper">
     <div className="qr-box">
       <QRCode
-        value={`https://graduation.nardio.online/invite/${uuid}`}
+        value={`https://wedding.nardio.online/invite/${uuid}`}
         size={70}
         level="L"
         bgColor="#ffffff"

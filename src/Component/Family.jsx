@@ -6,7 +6,7 @@ export default function Family() {
   const [guest, setGuest] = useState(null);
 
   useEffect(() => {
-    fetch(`https://graduation.nardio.online/api/guest/${uuid}`)
+    fetch(`https://wedding.nardio.online/api/guest/${uuid}`)
       .then((res) => res.json())
       .then((data) => setGuest(data))
       .catch((err) => console.error(err));
@@ -16,8 +16,8 @@ export default function Family() {
   return (
     <div className="familia">
       <h4>
-        {/* Familia ya Mr & Mrs Hagai Mwakalindile wanayo furaha kubwa kukualika: */}
-      Nitakie pongezi kwenye siku yangu hii muhimu
+        Familia ya Mr & Mrs Hagai Mwakalindile wanayo furaha kubwa kukualika:
+  
       </h4>
       <p className="guest">
         {guest ? guest.name.toUpperCase() : "Guest not found"}

@@ -23,11 +23,11 @@ function App() {
               <div className="content-box">
                 <InvitationCard />
                 <Family />
-                {/* <Word /> */}
+                <Word />
                 <CountdownOnly />
                 <RSVPSection />
                 <AudioGuestbook />
-                {/* <MapSection /> */}
+                <MapSection />
                 <DownloadCardButton />
               </div>
             </div>
