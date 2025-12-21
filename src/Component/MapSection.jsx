@@ -22,7 +22,7 @@ export default function MapSection() {
       </div>
       <iframe
         title="Event Location"
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5096.684721903736!2d33.44176417607625!3d-8.893832491236417!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19009f0000a3904b%3A0x9fd514ade2dab9e2!2sCity%20park%20garden%20Mbeya!5e1!3m2!1sen!2stz!4v1765780821018!5m2!1sen!2stz"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1311538.8543850738!2d37.99396766064262!3d-6.726708099999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x185c51dea2da1b53%3A0x1bf4f464e54ec0f5!2sKiramuu%20Hall!5e1!3m2!1sen!2stz!4v1766284808665!5m2!1sen!2stz" 
         className="map-frame"
         allowFullScreen=""
         loading="lazy"
