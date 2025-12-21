@@ -8,12 +8,12 @@ body {
   padding: 0;
 }
 .page-wrapper {
-  background-image: url("/danny.jpg");
+  background-image: url("/leona.jpg");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  min-height: 80vh;
-  padding: 1rem;
+  min-height: 72vh;
+  padding: 2rem;
   display: flex;
   justify-content: center;
 }
@@ -24,9 +24,9 @@ body {
   border-radius: 0.75rem;
   /* padding: rem; */
   border-color: #e5e7eb;
-  max-width: 700px;
+  max-width: 600px;
   margin: 0px auto;
-  min-height: 80vh;
+  min-height: 10vh;
   width: 100%;
   text-align: center;
   border: 1px solid rgba(90, 89, 89, 0.861);
