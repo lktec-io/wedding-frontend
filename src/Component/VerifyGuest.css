@@ -5,7 +5,7 @@
   align-items: center;
   justify-content: flex-start; /* ⬆️ PANDISHA juu badala ya center */
   background: linear-gradient(to right, rgba(40, 5, 5, 0.801), rgba(50, 5, 5, 0.872)),
-    url("/mama.jpg") center/cover no-repeat;
+    url("/leona.jpg") center/cover no-repeat;
   backdrop-filter: blur(10px);
   text-align: center;
   padding: 40px 20px; /* imeongezwa padding ya juu */
