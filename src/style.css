@@ -21,10 +21,10 @@ body {
 .content-box {
   background: rgba(255, 255, 255, 0.876);
   backdrop-filter: blur(10px);
-  border-radius: 0.75rem;
+  border-radius: 0.78rem;
   /* padding: rem; */
   border-color: #e5e7eb;
-  max-width: 600px;
+  max-width: 800px;
   margin: 0px auto;
   min-height: 10vh;
   width: 100%;
