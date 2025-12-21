@@ -12,8 +12,8 @@ body {
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  min-height: 72vh;
-  padding: 0.6rem;
+  min-height: 70vh;
+  padding: 0.7rem;
   display: flex;
   justify-content: center;
 }
@@ -26,12 +26,12 @@ body {
   border-color: #e5e7eb;
   max-width: 800px;
   margin: 0px auto;
-  min-height: 10vh;
+  min-height: 8vh;
   width: 100%;
   text-align: center;
   border: 1px solid rgba(90, 89, 89, 0.861);
   box-shadow: 0 0 20px rgba(28, 28, 28, 0.644);
-  margin-top: 40px;
+  margin-top: 45px;
   overflow: hidden;
 }
 
