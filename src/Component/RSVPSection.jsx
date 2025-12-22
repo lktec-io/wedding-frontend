@@ -14,25 +14,23 @@ export default function RSVPSection() {
     setTimeout(() => {
       setSending(false);
 
-      // 🔥 Fullscreen confetti
-      confetti({
-        particleCount: 250,
-        startVelocity: 30,
-        spread: 160,
-        origin: { x: 0.5, y: 0.4 },
-        gravity: 0.6,
-        ticks: 200,
-        scalar: 1.2,
-        colors: ["#df3d07", "#ffcc00", "#ffffff", "#22c55e"],
-      });
+      // 🔥 Fullscreen confetti using default canvas (on window)
+      for (let i = 0; i < 3; i++) {
+        confetti({
+          particleCount: 100,
+          startVelocity: 40,
+          spread: 160,
+          origin: { x: Math.random(), y: Math.random() * 0.5 },
+          colors: ["#df3d07", "#ffcc00", "#ffffff", "#22c55e"],
+        });
+      }
 
       // 🔊 Play success sound
-      successSound.currentTime = 0; // reset sound
+      successSound.currentTime = 0;
       successSound.play().catch(() => {
-        // catch autoplay block if any
         console.log("Play sound requires user interaction");
       });
-    }, 500); // small delay to simulate sending
+    }, 500);
   };
 
   const handleNoClick = () => {
