@@ -95,7 +95,7 @@ export default function VerifyGuest() {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         />
-        <button disabled={loading}>
+        <button className="batan" disabled={loading}>
           {loading ? "Inatafuta..." : "Tafuta"}
         </button>
       </form>
@@ -106,7 +106,7 @@ export default function VerifyGuest() {
           <p>Chagua mgeni sahihi:</p>
 
           {guests.map((g) => (
-            <button
+            <button className="batan"
               key={g.id}
               style={{ marginTop: "8px", width: "100%" }}
               onClick={() => setSelectedGuest(g)}
@@ -134,7 +134,7 @@ export default function VerifyGuest() {
           </p>
 
           {!selectedGuest.checked_in && (
-            <button onClick={confirmCheckIn} disabled={loading}>
+            <button className="batan" onClick={confirmCheckIn} disabled={loading}>
               ✅ Confirm Check-In
             </button>
           )}
