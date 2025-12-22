@@ -6,7 +6,7 @@ body{
 
 .rsvp {
   position: relative; /* Muhimu: Inatengeneza mpaka wa confetti */
-  overflow: visible;    /* Inazuia confetti zisivuje kwenda components zingine */
+  overflow: hidden;    /* Inazuia confetti zisivuje kwenda components zingine */
   text-align: center;
   margin-top: 2rem;
   padding: 3rem 1rem;
@@ -60,7 +60,7 @@ body{
 }
 
 .yes-btn:disabled {
-  background-color: rgb(122, 238, 184);
+  background-color: rgba(122, 238, 184, 0.503);
   cursor: not-allowed;
 }
 
