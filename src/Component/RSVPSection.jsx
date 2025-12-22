@@ -27,10 +27,15 @@ export default function RSVPSection() {
 
       for (let i = 0; i < 5; i++) {
         myConfetti({
-          particleCount: 100,
-          spread: 80,
-          startVelocity: 45,
-          origin: { x, y },
+          particleCount: 120,
+          spread: 70,
+          startVelocity: 28,
+          gravity: 1.2,
+          ticks: 200,
+          origin: {
+            x,
+            y: Math.min(y + 0.12, 0.9),
+          },
           colors: ["#df3d07", "#ffcc00", "#ffffff", "#22c55e"],
         });
       }
@@ -66,9 +71,7 @@ export default function RSVPSection() {
       {sending && <p className="sending">⏳ Inatuma...</p>}
 
       {success && (
-        <div className="success-box">
-          Asante! Ujumbe wako umepokelewa.
-        </div>
+        <div className="success-box">Asante! Ujumbe wako umepokelewa.</div>
       )}
     </div>
   );
