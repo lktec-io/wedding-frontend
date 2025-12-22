@@ -26,14 +26,14 @@ export default function RSVPSection() {
       setSending(false);
 
       if (myConfetti.current) {
-        myConfetti({
+        myConfetti.current({
           particleCount: 160,
           spread: 90,
-          startVelocity: 35,
-          origin: { x: 0.5, y: 0.8 }, // 🔥 chini ya button
+          origin: { x: 0.5, y: 0.8 }, // Katikati ya canvas ya RSVP
+          colors: ["#df3d07", "#ffcc00", "#ffffff", "#22c55e"],
           gravity: 0.7,
           ticks: 200,
-          colors: ["#df3d07", "#ffcc00", "#ffffff", "#22c55e"],
+          scalar: 1.2
         });
       }
 
@@ -53,11 +53,7 @@ export default function RSVPSection() {
         <h2>Utajumuika Nasi?</h2>
 
         <div className="rsvp-buttons">
-          <button
-            className="yes-btn"
-            onClick={handleYesClick}
-            disabled={sending}
-          >
+          <button className="yes-btn" onClick={handleYesClick} disabled={sending}>
             {sending ? "⏳ Inatuma..." : "✓ Ndiyo, Nitakuwepo"}
           </button>
 
@@ -67,7 +63,9 @@ export default function RSVPSection() {
         </div>
 
         {success && (
-          <div className="success-box">Asante! Ujumbe wako umepokelewa.</div>
+          <div className="success-box">
+            Asante! Ujumbe wako umepokelewa.
+          </div>
         )}
       </div>
     </div>
