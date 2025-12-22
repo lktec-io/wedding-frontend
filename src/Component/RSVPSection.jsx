@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import confetti from "canvas-confetti";
 import "./RSVPSection.css";
 
@@ -7,30 +7,30 @@ const successSound = new Audio("/success.mp3");
 export default function RSVPSection() {
   const [sending, setSending] = useState(false);
   const [success, setSuccess] = useState(false);
+  const yesBtnRef = useRef(null);
 
   const handleYesClick = () => {
     setSending(true);
     setSuccess(false);
-console.log("CONFETTI FIRED");
 
     setTimeout(() => {
       setSending(false);
 
-      // ✅ FORCE VISIBLE CONFETTI
+      const rect = yesBtnRef.current.getBoundingClientRect();
+      const x = (rect.left + rect.width / 2) / window.innerWidth;
+      const y = (rect.top + rect.height / 2) / window.innerHeight;
+
       const myConfetti = confetti.create(undefined, {
         resize: true,
         useWorker: true,
       });
 
-      for (let i = 0; i < 6; i++) {
+      for (let i = 0; i < 5; i++) {
         myConfetti({
-          particleCount: 120,
-          spread: 100,
+          particleCount: 100,
+          spread: 80,
           startVelocity: 45,
-          origin: {
-            x: Math.random(),
-            y: Math.random() * 0.4,
-          },
+          origin: { x, y },
           colors: ["#df3d07", "#ffcc00", "#ffffff", "#22c55e"],
         });
       }
@@ -41,7 +41,7 @@ console.log("CONFETTI FIRED");
       setTimeout(() => {
         setSuccess(true);
       }, 900);
-    }, 800);
+    }, 600);
   };
 
   return (
@@ -49,7 +49,12 @@ console.log("CONFETTI FIRED");
       <h2>Utajumuika Nasi?</h2>
 
       <div className="rsvp-buttons">
-        <button className="yes-btn" onClick={handleYesClick} disabled={sending}>
+        <button
+          ref={yesBtnRef}
+          className="yes-btn"
+          onClick={handleYesClick}
+          disabled={sending}
+        >
           ✓ Ndiyo, Nitakuwepo
         </button>
 
