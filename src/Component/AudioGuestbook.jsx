@@ -2,7 +2,7 @@ import { useState, useRef } from 'react';
 import { FaRedo, FaPaperPlane, FaMicrophone } from 'react-icons/fa';
 import './AudioGuestbook.css';
 
-export default function AudioGuestbook({ guest = "Leonard & Krister" }) {
+export default function AudioGuestbook({ guest = "Leonard & Lulu" }) {
   const [recording, setRecording] = useState(false);
   const [audioURL, setAudioURL] = useState(null);
   const [saving, setSaving] = useState(false);
