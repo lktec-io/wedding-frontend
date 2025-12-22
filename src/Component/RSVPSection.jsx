@@ -1,6 +1,7 @@
 import { useState } from "react";
 import confetti from "canvas-confetti";
 import "./RSVPSection.css";
+import { DiJavascript1 } from "react-icons/di";
 
 // 🔊 Success sound (weka success.mp3 kwenye /public folder)
 const successSound = new Audio("/success.mp3");
