@@ -1,9 +1,8 @@
 import { useState } from "react";
 import confetti from "canvas-confetti";
 import "./RSVPSection.css";
-import { DiJavascript1 } from "react-icons/di";
 
-// 🔊 Success sound (weka success.mp3 kwenye /public folder)
+// 🔊 Success sound
 const successSound = new Audio("/success.mp3");
 
 export default function RSVPSection() {
@@ -15,30 +14,35 @@ export default function RSVPSection() {
     setTimeout(() => {
       setSending(false);
 
-      // 🔥 Fullscreen confetti with multiple burs
-      for (let i = 0; i < 5; i++) {
-        confetti({
-          particleCount: 100,
-          startVelocity: 40,
-          spread: 160,
-          origin: { x: Math.random(), y: Math.random() * 0.5 },
+      // ✅ FORCE fullscreen confetti (SAME as VerifyGuest)
+      const myConfetti = confetti.create(document.body, {
+        resize: true,
+        useWorker: true,
+      });
+
+      // 🔥 Multiple bursts for visibility
+      for (let i = 0; i < 4; i++) {
+        myConfetti({
+          particleCount: 120,
+          spread: 90,
+          startVelocity: 45,
+          origin: {
+            x: Math.random(),
+            y: Math.random() * 0.4,
+          },
           colors: ["#df3d07", "#ffcc00", "#ffffff", "#22c55e"],
-          gravity: 0.6,
-          ticks: 200,
         });
       }
 
-      // 🔊 Play success sound
+      // 🔊 Play sound (user click → no block)
       successSound.currentTime = 0;
-      successSound.play().catch(() => {
-        console.log("Play sound requires user interaction");
-      });
-    }, 500); // small delay for effect
+      successSound.play().catch(() => {});
+    }, 400);
   };
 
   const handleNoClick = () => {
     setSending(true);
-    setTimeout(() => setSending(false), 500);
+    setTimeout(() => setSending(false), 400);
   };
 
   return (
@@ -49,6 +53,7 @@ export default function RSVPSection() {
         <button className="yes-btn" onClick={handleYesClick} disabled={sending}>
           ✓ Ndiyo, Nitakuwepo
         </button>
+
         <button className="no-btn" onClick={handleNoClick} disabled={sending}>
           ✗ Hapana, Sitakuwepo
         </button>
