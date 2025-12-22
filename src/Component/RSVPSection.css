@@ -79,7 +79,7 @@
 }
 
 /* 🌟 Popup Modal */
-.popup-overlay {
+/* .popup-overlay {
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.35);
@@ -89,9 +89,9 @@
   align-items: center;
   z-index: 999;
   animation: fadeIn 0.3s ease-in-out;
-}
+} */
 
-.popup {
+/* .popup {
   background: #fff;
   padding: 1.8rem;
   border-radius: 15px;
@@ -111,7 +111,7 @@
   color: #555;
   margin-bottom: 1rem;
   font-size: 0.95rem;
-}
+} */
 
 .popup button {
   background: #df3d07;
@@ -129,7 +129,7 @@
 }
 
 /* Animations */
-@keyframes fadeIn {
+/* @keyframes fadeIn {
   from {
     opacity: 0;
   }
@@ -156,7 +156,7 @@
     opacity: 1;
     transform: translateY(0);
   }
-}
+} */
 
 .success-box {
   margin-top: 1rem;
