@@ -23,10 +23,10 @@ export default function RSVPSection() {
       });
 
       myConfetti({
-        particleCount: 160,
-        spread: 90,
+        particleCount: 150,
+        spread: 70,
         startVelocity: 35,
-        origin: { x: 0.5, y: 0.8 }, // 🔥 chini ya button
+        origin: { x: 0.5, y: 0.7 }, // 🔥 chini ya button
         gravity: 0.7,
         ticks: 200,
         colors: ["#df3d07", "#ffcc00", "#ffffff", "#22c55e"],
@@ -59,9 +59,7 @@ export default function RSVPSection() {
       {sending && <p className="sending">⏳ Inatuma...</p>}
 
       {success && (
-        <div className="success-box">
-          Asante! Ujumbe wako umepokelewa.
-        </div>
+        <div className="success-box">Asante! Ujumbe wako umepokelewa.</div>
       )}
     </div>
   );
