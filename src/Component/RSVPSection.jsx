@@ -10,43 +10,53 @@ export default function RSVPSection() {
   const yesBtnRef = useRef(null);
 
   const handleYesClick = () => {
+    if (!yesBtnRef.current) return;
+
     setSending(true);
     setSuccess(false);
 
     setTimeout(() => {
       setSending(false);
 
+      // 🔹 Get exact button position
       const rect = yesBtnRef.current.getBoundingClientRect();
+
       const x = (rect.left + rect.width / 2) / window.innerWidth;
-      const y = (rect.top + rect.height / 2) / window.innerHeight;
+
+      // 🔥 PUSH CONFETTI DOWN BELOW THE BUTTON
+      const y =
+        (rect.top + rect.height) / window.innerHeight + 0.05;
 
       const myConfetti = confetti.create(undefined, {
         resize: true,
         useWorker: true,
       });
 
-      for (let i = 0; i < 5; i++) {
+      // 🔥 Multiple soft bursts FROM BUTTON DOWN
+      for (let i = 0; i < 4; i++) {
         myConfetti({
-          particleCount: 120,
+          particleCount: 90,
           spread: 70,
-          startVelocity: 28,
-          gravity: 1.2,
-          ticks: 200,
+          startVelocity: 18, // 🔴 LOW so it doesn’t jump up
+          gravity: 1.4,      // 🔴 Pull down fast
+          ticks: 180,
           origin: {
             x,
-            y: Math.min(y + 0.12, 0.9),
+            y: Math.min(y, 0.9), // never go beyond bottom
           },
           colors: ["#df3d07", "#ffcc00", "#ffffff", "#22c55e"],
         });
       }
 
+      // 🔊 Sound
       successSound.currentTime = 0;
       successSound.play().catch(() => {});
 
+      // ✅ Show success message AFTER confetti
       setTimeout(() => {
         setSuccess(true);
-      }, 900);
-    }, 600);
+      }, 800);
+    }, 500);
   };
 
   return (
@@ -71,7 +81,9 @@ export default function RSVPSection() {
       {sending && <p className="sending">⏳ Inatuma...</p>}
 
       {success && (
-        <div className="success-box">Asante! Ujumbe wako umepokelewa.</div>
+        <div className="success-box">
+          Asante! Ujumbe wako umepokelewa.
+        </div>
       )}
     </div>
   );
