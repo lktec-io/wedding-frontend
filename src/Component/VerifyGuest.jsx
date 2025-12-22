@@ -1,5 +1,7 @@
 import { useState } from "react";
 import "./VerifyGuest.css";
+import confetti from "canvas-confetti";
+const successSound = new Audio("/success.mp3");
 
 export default function VerifyGuest() {
   const [query, setQuery] = useState("");
@@ -7,10 +9,12 @@ export default function VerifyGuest() {
   const [selectedGuest, setSelectedGuest] = useState(null);
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [count, setCount] = useState(0);
 
   // 🔍 TAFUTA LIST YA WAGENI
   const searchGuest = async () => {
     if (!query.trim()) return alert("Weka jina au code ya mgeni");
+    setCount((prev) => prev + 1);
 
     setLoading(true);
     setGuests([]);
@@ -53,10 +57,15 @@ export default function VerifyGuest() {
       setLoading(false);
 
       if (res.status === 200) {
+        successSound.play();
+
+        confetti({
+          particleCount: 120,
+          spread: 80,
+          origin: { y: 0.6 },
+        });
+
         setResult({ success: true, message: "✅ Check-in imefanikiwa" });
-        setGuests([]);
-        setSelectedGuest(null);
-        setQuery("");
       } else {
         setResult({ success: false, message: data.message });
       }
@@ -68,8 +77,12 @@ export default function VerifyGuest() {
 
   return (
     <div className="verify-container">
-      <h2>🎟️ Guest Verification</h2>
-
+      <h2 className="show">🎟️ Guest Verification</h2>
+      <div className="live-counter">
+        <h3 className="counted">{count}</h3>
+        <p className="h3">WALIOINGIA</p>
+      </div>
+{loading && <div className="skeleton" />}
       <form
         onSubmit={(e) => {
           e.preventDefault();
@@ -78,7 +91,7 @@ export default function VerifyGuest() {
       >
         <input
           type="text"
-          placeholder="Ingiza jina AU code"
+          placeholder="Ingiza jina au code"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         />
@@ -107,8 +120,12 @@ export default function VerifyGuest() {
       {/* 👤 MGENI ALIYECHAGULIWA */}
       {selectedGuest && (
         <div className="verify-result checked">
-          <p><strong>Jina:</strong> {selectedGuest.name}</p>
-          <p><strong>Aina:</strong> {selectedGuest.type}</p>
+          <p>
+            <strong>Jina:</strong> {selectedGuest.name}
+          </p>
+          <p>
+            <strong>Aina:</strong> {selectedGuest.type}
+          </p>
           <p>
             <strong>Status:</strong>{" "}
             {selectedGuest.checked_in
@@ -125,7 +142,9 @@ export default function VerifyGuest() {
       )}
 
       {result && (
-        <div className={`verify-result ${result.success ? "success" : "error"}`}>
+        <div
+          className={`verify-result ${result.success ? "success" : "error"}`}
+        >
           {result.message}
         </div>
       )}
