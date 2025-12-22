@@ -2,7 +2,6 @@ import { useState } from "react";
 import confetti from "canvas-confetti";
 import "./RSVPSection.css";
 
-// 🔊 Success sound
 const successSound = new Audio("/success.mp3");
 
 export default function RSVPSection() {
@@ -12,18 +11,18 @@ export default function RSVPSection() {
   const handleYesClick = () => {
     setSending(true);
     setSuccess(false);
+console.log("CONFETTI FIRED");
 
-    // STEP 1: simulate sending
     setTimeout(() => {
       setSending(false);
 
-      // STEP 2: confetti fullscreen
-      const myConfetti = confetti.create(document.body, {
+      // ✅ FORCE VISIBLE CONFETTI
+      const myConfetti = confetti.create(undefined, {
         resize: true,
         useWorker: true,
       });
 
-      for (let i = 0; i < 5; i++) {
+      for (let i = 0; i < 6; i++) {
         myConfetti({
           particleCount: 120,
           spread: 100,
@@ -36,21 +35,13 @@ export default function RSVPSection() {
         });
       }
 
-      // STEP 3: sound
       successSound.currentTime = 0;
       successSound.play().catch(() => {});
 
-      // STEP 4: show success message AFTER confetti
       setTimeout(() => {
         setSuccess(true);
       }, 900);
     }, 800);
-  };
-
-  const handleNoClick = () => {
-    setSending(true);
-    setSuccess(false);
-    setTimeout(() => setSending(false), 600);
   };
 
   return (
@@ -58,30 +49,20 @@ export default function RSVPSection() {
       <h2>Utajumuika Nasi?</h2>
 
       <div className="rsvp-buttons">
-        <button
-          className="yes-btn"
-          onClick={handleYesClick}
-          disabled={sending}
-        >
+        <button className="yes-btn" onClick={handleYesClick} disabled={sending}>
           ✓ Ndiyo, Nitakuwepo
         </button>
 
-        <button
-          className="no-btn"
-          onClick={handleNoClick}
-          disabled={sending}
-        >
+        <button className="no-btn" disabled={sending}>
           ✗ Hapana, Sitakuwepo
         </button>
       </div>
 
-      {/* ⏳ Sending */}
       {sending && <p className="sending">⏳ Inatuma...</p>}
 
-      {/* ✅ Success message */}
       {success && (
         <div className="success-box">
-          <p>Asante! Ujumbe wako umepokelewa.</p>
+          Asante! Ujumbe wako umepokelewa.
         </div>
       )}
     </div>
