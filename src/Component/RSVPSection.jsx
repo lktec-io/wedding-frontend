@@ -2,39 +2,36 @@ import { useState } from "react";
 import confetti from "canvas-confetti";
 import "./RSVPSection.css";
 
-// 🔊 Import sound (weka success.mp3 kwenye /public au path sawa)
+// 🔊 Success sound
 const successSound = new Audio("/success.mp3");
 
 export default function RSVPSection() {
   const [sending, setSending] = useState(false);
-  const [response, setResponse] = useState(null);
 
   const handleYesClick = () => {
     setSending(true);
 
     setTimeout(() => {
       setSending(false);
-      setResponse("yes");
 
-      // 🔥 Confetti
+      // 🔥 Fullscreen Confetti
       confetti({
-        particleCount: 120,
-        spread: 70,
-        origin: { y: 0.6 },
+        particleCount: 200,
+        spread: 120,
+        origin: { x: 0.5, y: 0.3 },
+        gravity: 0.6,
+        ticks: 200,
+        scalar: 1.2,
       });
 
       // 🔊 Play success sound
       successSound.play();
-    }, 1500);
+    }, 1000);
   };
 
   const handleNoClick = () => {
     setSending(true);
-    setTimeout(() => {
-      setSending(false);
-      setResponse("no");
-      // hakuna confetti au sound kwa "No"
-    }, 1500);
+    setTimeout(() => setSending(false), 1000);
   };
 
   return (
@@ -42,10 +39,10 @@ export default function RSVPSection() {
       <h2>Utajumuika Nasi?</h2>
 
       <div className="rsvp-buttons">
-        <button onClick={handleYesClick} disabled={sending}>
+        <button className="yes-btn" onClick={handleYesClick} disabled={sending}>
           ✓ Ndiyo, Nitakuwepo
         </button>
-        <button onClick={handleNoClick} disabled={sending}>
+        <button className="no-btn" onClick={handleNoClick} disabled={sending}>
           ✗ Hapana, Sitakuwepo
         </button>
       </div>

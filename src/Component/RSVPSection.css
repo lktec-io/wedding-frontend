@@ -21,32 +21,38 @@
   margin-bottom: 1rem;
 }
 
-.yes-btn,
-.no-btn {
+/* ✅ Ndiyo button */
+.yes-btn {
   padding: 0.6rem 1.2rem;
   border-radius: 8px;
   font-size: 1rem;
   cursor: pointer;
   border: none;
   transition: all 0.3s ease;
-}
-
-.yes-btn {
-  background-color: #008000;
+  background-color: #df3d07; /* 🔥 updated */
   color: white;
 }
 
-.no-btn {
-  background-color: #c8c4c4;
-  color: black;
-  border: 1px solid #999;
+.yes-btn:hover {
+  transform: scale(1.05);
+  background-color: #bf2f05; /* darker on hover */
 }
 
-.yes-btn:hover,
+/* ✅ Sitakuwepo button */
+.no-btn {
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  border: 1px solid #999;
+  transition: all 0.3s ease;
+  background-color: white; /* 🔥 Sitakuwepo nyeupe */
+  color: black; /* maandiko meusi */
+}
+
 .no-btn:hover {
   transform: scale(1.05);
-  background-color: #df3d07;
-
+  background-color: #f0f0f0; /* hover pale nyeupe kidogo */
 }
 
 /* 🌸 Petal Animation */
@@ -107,7 +113,7 @@
 }
 
 .popup button {
-  background: #008000;
+  background: #df3d07;
   color: white;
   border: none;
   padding: 0.6rem 1.2rem;
@@ -117,7 +123,7 @@
 }
 
 .popup button:hover {
-  background: #006400;
+  background: #bf2f05;
 }
 
 /* Animations */
