@@ -27,20 +27,18 @@ export default function RSVPSection() {
 
       if (myConfetti.current) {
         myConfetti.current({
-          particleCount: 400, // 🔥 Idadi imeongezeka kutoka 150 hadi 400
+          particleCount: 350, // 🔥 Idadi imeongezeka kutoka 150 hadi 400
           spread: 100, // Imepanuka kidogo ili zijae vizuri
           origin: { x: 0.5, y: 0.5 },
           colors: ["#df3d07", "#ffcc00", "#ffffff", "#22c55e"],
           gravity: 1.2, // Zitaanguka haraka kidogo kwa sababu ni nyingi
           ticks: 300, // Zitakaa muda mrefu kidogo kabla ya kupotea
-          scalar: 0.7, // 🔥 Hii ndiyo size (Chini ya 1 ni ndogo, juu ya 1 ni kubwa)
+          scalar: 0.8, // 🔥 Hii ndiyo size (Chini ya 1 ni ndogo, juu ya 1 ni kubwa)
           drift: 0,
         });
       }
-
       successSound.currentTime = 0;
       successSound.play().catch(() => {});
-
       setTimeout(() => setSuccess(true), 500);
     }, 800);
   };
