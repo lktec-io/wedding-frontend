@@ -33,7 +33,7 @@ export default function RSVPSection() {
           colors: ["#df3d07", "#ffcc00", "#ffffff", "#22c55e"],
           gravity: 1.2, // Zitaanguka haraka kidogo kwa sababu ni nyingi
           ticks: 300, // Zitakaa muda mrefu kidogo kabla ya kupotea
-          scalar: 0.8, // 🔥 Hii ndiyo size (Chini ya 1 ni ndogo, juu ya 1 ni kubwa)
+          scalar: 0.9, // 🔥 Hii ndiyo size (Chini ya 1 ni ndogo, juu ya 1 ni kubwa)
           drift: 0,
         });
       }
