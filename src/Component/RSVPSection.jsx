@@ -7,24 +7,26 @@ const successSound = new Audio("/success.mp3");
 
 export default function RSVPSection() {
   const [sending, setSending] = useState(false);
+  const [success, setSuccess] = useState(false);
 
   const handleYesClick = () => {
     setSending(true);
+    setSuccess(false);
 
+    // STEP 1: simulate sending
     setTimeout(() => {
       setSending(false);
 
-      // ✅ FORCE fullscreen confetti (SAME as VerifyGuest)
+      // STEP 2: confetti fullscreen
       const myConfetti = confetti.create(document.body, {
         resize: true,
         useWorker: true,
       });
 
-      // 🔥 Multiple bursts for visibility
-      for (let i = 0; i < 4; i++) {
+      for (let i = 0; i < 5; i++) {
         myConfetti({
           particleCount: 120,
-          spread: 90,
+          spread: 100,
           startVelocity: 45,
           origin: {
             x: Math.random(),
@@ -34,15 +36,21 @@ export default function RSVPSection() {
         });
       }
 
-      // 🔊 Play sound (user click → no block)
+      // STEP 3: sound
       successSound.currentTime = 0;
       successSound.play().catch(() => {});
-    }, 400);
+
+      // STEP 4: show success message AFTER confetti
+      setTimeout(() => {
+        setSuccess(true);
+      }, 900);
+    }, 800);
   };
 
   const handleNoClick = () => {
     setSending(true);
-    setTimeout(() => setSending(false), 400);
+    setSuccess(false);
+    setTimeout(() => setSending(false), 600);
   };
 
   return (
@@ -50,16 +58,32 @@ export default function RSVPSection() {
       <h2>Utajumuika Nasi?</h2>
 
       <div className="rsvp-buttons">
-        <button className="yes-btn" onClick={handleYesClick} disabled={sending}>
+        <button
+          className="yes-btn"
+          onClick={handleYesClick}
+          disabled={sending}
+        >
           ✓ Ndiyo, Nitakuwepo
         </button>
 
-        <button className="no-btn" onClick={handleNoClick} disabled={sending}>
+        <button
+          className="no-btn"
+          onClick={handleNoClick}
+          disabled={sending}
+        >
           ✗ Hapana, Sitakuwepo
         </button>
       </div>
 
-      {sending && <p className="sending">⏳ Inatuma ujumbe wako...</p>}
+      {/* ⏳ Sending */}
+      {sending && <p className="sending">⏳ Inatuma...</p>}
+
+      {/* ✅ Success message */}
+      {success && (
+        <div className="success-box">
+          <p>Asante! Ujumbe wako umepokelewa.</p>
+        </div>
+      )}
     </div>
   );
 }
