@@ -25,11 +25,11 @@
 
 .rsvp-content {
   position: relative;
-  z-index: 2; /* Inakaa juu ya confetti */
+  z-index: 2; /* Inakaa juu ya confet */
 }
 
 .rsvp h2 {
-  font-family: "Inter", sans-serif;
+  font-family: "Inter", sans-serif ;
   color: rgba(0, 0, 0, 0.85);
   font-size: 1.6em;
   font-weight: 600;
