@@ -1,143 +1,182 @@
+/* =========================
+   ROOT & GLOBAL
+========================= */
+:root {
+  --primary: #4f46e5;
+  --primary-dark: #4338ca;
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --glass: rgba(255, 255, 255, 0.15);
+  --blur: blur(18px);
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont;
+}
+
+/* =========================
+   CONTAINER
+========================= */
 .verify-container {
   min-height: 100vh;
+  padding: 40px 16px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start; /* ⬆️ PANDISHA juu badala ya center */
-  background: linear-gradient(to right, rgba(68, 19, 19, 0.801), rgba(61, 11, 11, 0.872)),
-    url("/leona.jpg") center/cover no-repeat;
-  backdrop-filter: blur(10px);
-  text-align: center;
-  padding: 40px 20px; /* imeongezwa padding ya juu */
-  margin: 0 auto;
+  background:
+    linear-gradient(135deg, rgba(15, 23, 42, 0.9), rgba(88, 28, 135, 0.9)),
+    url("/leona.jpg") center / cover no-repeat;
+  backdrop-filter: blur(12px);
+  color: #fff;
+  animation: pageFade 0.8s ease;
 }
 
+/* =========================
+   HEADER
+========================= */
 .verify-container h2 {
-  color: #fff;
-  font-size: 2rem;
-  margin-bottom: 10px;
+  font-size: 2.2rem;
+  margin-bottom: 6px;
+  letter-spacing: 0.5px;
+  animation: slideDown 0.6s ease;
 }
 
 .verify-container p {
-  color: #ddd;
-  margin-bottom: 30px;
+  opacity: 0.85;
+  margin-bottom: 24px;
 }
 
-.verify-options {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-}
-
+/* =========================
+   FORM (GLASS CARD)
+========================= */
 form {
+  width: 100%;
+  max-width: 360px;
+  background: var(--glass);
+  backdrop-filter: var(--blur);
+  border-radius: 18px;
+  padding: 22px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 10px;
+  gap: 14px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+  animation: scaleIn 0.5s ease;
 }
 
+/* =========================
+   INPUT
+========================= */
 input {
-  padding: 13px 15px;
-  font-size: 1rem;
-  text-transform: uppercase;
-  border-radius: 10px;
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 14px;
   border: none;
   outline: none;
-  width: 220px;
+  font-size: 1rem;
   text-align: center;
-  background-color: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.9);
+  transition: all 0.3s ease;
 }
 
+input:focus {
+  transform: scale(1.03);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.4);
+}
+
+/* =========================
+   BUTTONS
+========================= */
 button {
-  background-color: #007bff;
-  color: white;
+  padding: 12px;
+  border-radius: 14px;
   border: none;
-  border-radius: 10px;
-  padding: 8px 20px;
   cursor: pointer;
   font-size: 1rem;
-  transition: 0.3s;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  transition: all 0.25s ease;
 }
 
 button:hover {
-  transform: scale(1.05);
-  background-color: #0056b3;
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 10px 30px rgba(79, 70, 229, 0.5);
 }
 
-.switch-btn {
-  margin-top: 10px;
-  background-color: #28a745;
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
 }
 
-.switch-btn.cancel {
-  background-color: #dc3545;
-}
-
+/* =========================
+   RESULT CARDS
+========================= */
 .verify-result {
   margin-top: 20px;
-  border-radius: 10px;
-  padding: 10px;
-  width: 80%;
-  max-width: 350px;
-  color: white;
-  font-size: 1em;
-  animation: fadeIn 0.5s ease-in;
+  width: 100%;
+  max-width: 360px;
+  padding: 18px;
+  border-radius: 18px;
+  backdrop-filter: var(--blur);
+  animation: floatUp 0.5s ease;
 }
 
 .verify-result.success {
-  background-color: rgba(0, 128, 0, 0.7);
+  background: rgba(34, 197, 94, 0.25);
+  border: 1px solid rgba(34, 197, 94, 0.6);
 }
 
 .verify-result.error {
-  background-color: rgba(255, 0, 0, 0.6);
+  background: rgba(239, 68, 68, 0.25);
+  border: 1px solid rgba(239, 68, 68, 0.6);
 }
 
 .verify-result.checked {
-  background-color: rgba(255, 165, 0, 0.7);
+  background: rgba(245, 158, 11, 0.25);
+  border: 1px solid rgba(245, 158, 11, 0.6);
 }
 
-.guest-info {
+/* =========================
+   GUEST LIST BUTTONS
+========================= */
+.verify-result.checked button {
   margin-top: 10px;
-  background: rgba(255, 255, 255, 0.15);
-  padding: 5px;
-  border-radius: 8px;
+  background: linear-gradient(135deg, #0ea5e9, #2563eb);
 }
 
-/* ✅ Scanner box improved */
-.scanner-box {
-  width: 330px;
-  height: 330px;
-  border-radius: 12px;
-  overflow: hidden;
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  background: rgba(0, 0, 0, 0.6);
-  transform: translateY(-50px); /* ⬆️ PANDISHA juu zaidi */
-  transition: transform 0.3s ease-in-out;
-  margin-bottom: 0;
-  margin-top: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.verify-result.checked button:hover {
+  box-shadow: 0 8px 25px rgba(14, 165, 233, 0.5);
 }
 
-/* ✅ Video camera styling — clear & sharp */
-.scanner-box video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* inafanya camera ifit vizuri */
-  border-radius: 12px;
-  filter: brightness(1.1) contrast(1.1);
-  transform: scale(1.02); /* kidogo kuzoom kusaidia focus */
+/* =========================
+   TEXT
+========================= */
+.verify-result p {
+  margin: 6px 0;
+  font-size: 0.95rem;
+  opacity: 0.95;
 }
 
-
-
-/* Small fade animation */
-@keyframes fadeIn {
+/* =========================
+   ANIMATIONS
+========================= */
+@keyframes pageFade {
   from {
     opacity: 0;
-    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-25px);
   }
   to {
     opacity: 1;
@@ -145,11 +184,38 @@ button:hover {
   }
 }
 
-/* ✅ Optional: improve camera look on phones */
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes floatUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   MOBILE OPTIMIZATION
+========================= */
 @media (max-width: 480px) {
-  .scanner-box {
-    width: 90vw;
-    height: 90vw;
-    transform: translateY(-40px);
+  .verify-container h2 {
+    font-size: 1.8rem;
+  }
+
+  form,
+  .verify-result {
+    max-width: 95%;
   }
 }
