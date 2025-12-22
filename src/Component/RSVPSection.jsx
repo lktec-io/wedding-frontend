@@ -14,7 +14,7 @@ export default function RSVPSection() {
     setTimeout(() => {
       setSending(false);
 
-      // 🔥 Fullscreen confetti with multiple bursts
+      // 🔥 Fullscreen confetti with multiple burst
       for (let i = 0; i < 5; i++) {
         confetti({
           particleCount: 100,
