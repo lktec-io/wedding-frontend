@@ -7,7 +7,7 @@ const successSound = new Audio("/success.mp3");
 export default function RSVPSection() {
   const [sending, setSending] = useState(false);
   const [success, setSuccess] = useState(false);
-  const confettiRef = useRef(null);
+  const yesBtnRef = useRef(null);
 
   const handleYesClick = () => {
     setSending(true);
@@ -16,26 +16,36 @@ export default function RSVPSection() {
     setTimeout(() => {
       setSending(false);
 
-      // ✅ CONFETTI BOUND TO LOCAL CANVAS
-      const myConfetti = confetti.create(confettiRef.current, {
+      // ✅ GET BUTTON POSITION (viewport-aware)
+      const rect = yesBtnRef.current.getBoundingClientRect();
+
+      const x = (rect.left + rect.width / 2) / window.innerWidth;
+      const y =
+        (rect.top + rect.height / 2 + window.scrollY) /
+        (document.documentElement.scrollHeight);
+
+      // ✅ CONFETTI ATTACHED TO BODY (NO TRANSFORM ISSUES)
+      const myConfetti = confetti.create(document.body, {
         resize: true,
         useWorker: true,
       });
 
-      myConfetti({
-        particleCount: 160,
-        spread: 90,
-        startVelocity: 35,
-        origin: { x: 0.5, y: 0.8 }, // 🔥 chini ya button
-        gravity: 0.7,
-        ticks: 200,
-        colors: ["#df3d07", "#ffcc00", "#ffffff", "#22c55e"],
-      });
+      for (let i = 0; i < 4; i++) {
+        myConfetti({
+          particleCount: 120,
+          spread: 80,
+          startVelocity: 35,
+          origin: { x, y },
+          gravity: 0.7,
+          ticks: 220,
+          colors: ["#df3d07", "#ffcc00", "#ffffff", "#22c55e"],
+        });
+      }
 
       successSound.currentTime = 0;
       successSound.play().catch(() => {});
 
-      setTimeout(() => setSuccess(true), 700);
+      setTimeout(() => setSuccess(true), 800);
     }, 500);
   };
 
@@ -43,11 +53,13 @@ export default function RSVPSection() {
     <div className="rsvp">
       <h2>Utajumuika Nasi?</h2>
 
-      {/* 🔥 CONFETTI CANVAS */}
-      <canvas ref={confettiRef} className="confetti-canvas" />
-
       <div className="rsvp-buttons">
-        <button className="yes-btn" onClick={handleYesClick} disabled={sending}>
+        <button
+          ref={yesBtnRef}
+          className="yes-btn"
+          onClick={handleYesClick}
+          disabled={sending}
+        >
           ✓ Ndiyo, Nitakuwepo
         </button>
 
