@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Scanner from "./Scanner";
 import confetti from "canvas-confetti";
-import "./styles.css"; // TUNATUMIA ILE ILE CSS
+// import "./styles.css"; // TUNATUMIA ILE ILE CSS
 
 export default function CardHubScan() {
   const [result, setResult] = useState(null);
