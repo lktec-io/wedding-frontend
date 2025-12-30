@@ -1,6 +1,6 @@
 import { Html5QrcodeScanner } from "html5-qrcode";
 import { useEffect } from "react";
-import "./styles.css"
+// import "./styles.css"
 
 
 export default function Scanner({ onScan }) {
