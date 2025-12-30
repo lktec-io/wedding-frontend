@@ -8,6 +8,7 @@ import InvitationCard from "./Component/InvitationCard";
 import MapSection from "./Component/MapSection";
 import RSVPSection from "./Component/RSVPSection";
 import VerifyGuest from "./Component/VerifyGuest";
+import CardHubScan from "./Component/CardHubScan";
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
       <Routes>
         {/* Personalized invite link for each guest */}
         <Route path="/verify" element={<VerifyGuest />} />
+        <Route path="/verify-scan" element={< CardHubScan/>} />
         <Route
           path="/invite/:uuid"
           element={
