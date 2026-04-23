@@ -22,9 +22,7 @@ export default function MapSection() {
       </div>
       <iframe
         title="Event Location"
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1311538.8543850738!2d37.99396766064262!3d-6.726708099999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x185c51dea2da1b53%3A0x1bf4f464e54ec0f5!2sKiramuu%20Hall!5e1!3m2!1sen!2stz!4v1766284808665!5m2!1sen!2stz" 
-        className="map-frame"
-        allowFullScreen=""
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3260.2232358703272!2d39.27020887399613!3d-6.795354993201911!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x185c4b872011a2c5%3A0x84a569f0c6682987!2sKinondoni%20SDA%20Church!5e1!3m2!1sen!2stz!4v1776987678018!5m2!1sen!2stz"
         loading="lazy"
         referrerPolicy="no-referrer-when-downgrade"
       ></iframe>
